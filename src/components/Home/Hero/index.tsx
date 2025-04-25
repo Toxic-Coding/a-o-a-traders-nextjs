@@ -5,7 +5,7 @@ import HeroFeature from "./HeroFeature";
 const Hero = () => {
   return (
     // Hero Section
-    <section className=" overflow-hidden bg-[#E5EAF4] py-[50px] sm:pt-45 lg:pt-30 xl:pt-51.5 px-[20px]">
+    <section className=" overflow-hidden bg-[#E5EAF4] py-[50px] px-[20px]">
       <div className="max-w-[1500px] mx-auto w-full">
         <div className="flex flex-wrap justify-between mb-[50px]">
           {/* Shop By Department */}
