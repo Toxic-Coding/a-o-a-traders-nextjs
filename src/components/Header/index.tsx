@@ -13,7 +13,7 @@ import Topbar from "./Topbar";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { Heart, ShoppingCart, UserRound } from "lucide-react";
+import { Heart, MenuIcon, ShoppingCart, UserRound } from "lucide-react";
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -268,7 +268,7 @@ const Header = () => {
         animate={controls}
         className="border-t border-gray-3 bg-app_blue text-white"
       >
-        <div className="max-w-[1170px] mx-auto px-4 sm:px-7.5 xl:px-0">
+        <div className="max-w-[1500px] mx-auto sm:px-7.5 xl:px-0 px-[20px]">
           <div className="flex items-center justify-between">
             {/* <!--=== Main Nav Start ===--> */}
             <div
@@ -278,7 +278,11 @@ const Header = () => {
               }`}
             >
               {/* <!-- Main Nav Start --> */}
-              <nav>
+              <nav className="flex items-center justify-between gap-5 pl-[20px]">
+                <div className="vertical-menu bg-orange cursor-pointer flex items-center justify-start p-[20px]">
+                  <MenuIcon/>
+                  <span className="text-[13px] font-medium">SHOP BY DEPARTMENT</span>
+                </div>
                 <ul className="flex xl:items-center flex-col xl:flex-row gap-5 xl:gap-6 uppercase">
                   {menuData.map((menuItem, i) =>
                     menuItem.submenu ? (
