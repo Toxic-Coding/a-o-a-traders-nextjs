@@ -19,7 +19,7 @@ const Error = () => {
                 height={190}
               />
 
-              <h2 className="font-medium text-dark text-xl sm:text-2xl mb-3">
+              <h2 className="font-medium text-app_text text-xl sm:text-2xl mb-3">
                 Sorry, the page can’t be found
               </h2>
 
@@ -30,7 +30,7 @@ const Error = () => {
 
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark"
+                className="inline-flex items-center gap-2 font-medium text-white bg-app_blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-app_blue"
               >
                 <svg
                   className="fill-current"

@@ -40,11 +40,11 @@ const BlogGridWithSidebar = () => {
     <>
       <Breadcrumb title={"Blog Grid Sidebar"} pages={["blog grid sidebar"]} />
 
-      <section className="max-w-[1500px] w-full mx-auto overflow-hidden py-20 bg-gray-2 px-[20px]">
-        <div className="flex flex-col lg:flex-row gap-7.5">
+      <section className="overflow-hidden py-20 bg-gray-2 px-[20px]">
+        <div className="max-w-[1500px] w-full mx-auto flex flex-col lg:flex-row gap-7.5">
           {/* <!-- blog grid --> */}
           <div className="lg:max-w-[1100px] w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-7.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-10 gap-x-7.5">
               {blogData.map((blog, key) => (
                 <BlogItem blog={blog} key={key} />
               ))}
@@ -192,56 +192,56 @@ const BlogGridWithSidebar = () => {
               <div className="p-4 sm:p-6">
                 <div className="flex flex-wrap gap-3.5">
                   <a
-                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-blue"
+                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-app_blue"
                     href="#"
                   >
                     Desktop
                   </a>
 
                   <a
-                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-blue"
+                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-app_blue"
                     href="#"
                   >
                     Macbook
                   </a>
 
                   <a
-                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-blue"
+                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-app_blue"
                     href="#"
                   >
                     PC
                   </a>
 
                   <a
-                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-blue"
+                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-app_blue"
                     href="#"
                   >
                     Watch
                   </a>
 
                   <a
-                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-blue"
+                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-app_blue"
                     href="#"
                   >
                     USB Cable
                   </a>
 
                   <a
-                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-blue"
+                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-app_blue"
                     href="#"
                   >
                     Mouse
                   </a>
 
                   <a
-                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-blue"
+                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-app_blue"
                     href="#"
                   >
                     Windows PC
                   </a>
 
                   <a
-                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-blue"
+                    className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-app_blue hover:border-app_blue"
                     href="#"
                   >
                     Monitor

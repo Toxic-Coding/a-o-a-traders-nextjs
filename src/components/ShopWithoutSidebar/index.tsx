@@ -23,8 +23,8 @@ const ShopWithoutSidebar = () => {
         title={"Explore All Products"}
         pages={["shop", "/", "shop without sidebar"]}
       />
-      <section className="max-w-[1500px] w-full mx-auto overflow-hidden relative bg-[#f3f4f6] py-[50px] px-[20px]">
-          <div className="flex gap-7.5">
+      <section className="overflow-hidden relative bg-[#f3f4f6] py-[50px] px-[20px]">
+          <div className="max-w-[1500px] w-full mx-auto flex gap-7.5">
             {/* // <!-- Content Start --> */}
             <div className="w-full">
               <div className="rounded-lg bg-white shadow-1 pl-3 pr-2.5 py-2.5 mb-6">
@@ -34,7 +34,7 @@ const ShopWithoutSidebar = () => {
                     <CustomSelect options={options} />
 
                     <p>
-                      Showing <span className="text-dark">9 of 50</span>{" "}
+                      Showing <span className="text-app_text">9 of 50</span>
                       Products
                     </p>
                   </div>
@@ -46,9 +46,9 @@ const ShopWithoutSidebar = () => {
                       aria-label="button for product grid tab"
                       className={`${
                         productStyle === "grid"
-                          ? "bg-blue border-blue text-white"
-                          : "text-dark bg-gray-1 border-gray-3"
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-blue hover:border-blue hover:text-white`}
+                          ? "bg-app_blue border-app_blue text-white"
+                          : "text-app_text bg-gray-1 border-gray-3"
+                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-app_blue hover:border-app_blue hover:text-white`}
                     >
                       <svg
                         className="fill-current"
@@ -90,9 +90,9 @@ const ShopWithoutSidebar = () => {
                       aria-label="button for product list tab"
                       className={`${
                         productStyle === "list"
-                          ? "bg-blue border-blue text-white"
-                          : "text-dark bg-gray-1 border-gray-3"
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-blue hover:border-blue hover:text-white`}
+                          ? "bg-app_blue border-app_blue text-white"
+                          : "text-app_text bg-gray-1 border-gray-3"
+                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border ease-out duration-200 hover:bg-app_blue hover:border-app_blue hover:text-white`}
                     >
                       <svg
                         className="fill-current"
@@ -169,7 +169,7 @@ const ShopWithoutSidebar = () => {
                     <li>
                       <a
                         href="#"
-                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] bg-blue text-white hover:text-white hover:bg-blue"
+                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] bg-app_blue text-white hover:text-white hover:bg-app_blue"
                       >
                         1
                       </a>
@@ -178,7 +178,7 @@ const ShopWithoutSidebar = () => {
                     <li>
                       <a
                         href="#"
-                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-app_blue"
                       >
                         2
                       </a>
@@ -187,7 +187,7 @@ const ShopWithoutSidebar = () => {
                     <li>
                       <a
                         href="#"
-                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-app_blue"
                       >
                         3
                       </a>
@@ -196,7 +196,7 @@ const ShopWithoutSidebar = () => {
                     <li>
                       <a
                         href="#"
-                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-app_blue"
                       >
                         4
                       </a>
@@ -205,7 +205,7 @@ const ShopWithoutSidebar = () => {
                     <li>
                       <a
                         href="#"
-                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-app_blue"
                       >
                         5
                       </a>
@@ -214,7 +214,7 @@ const ShopWithoutSidebar = () => {
                     <li>
                       <a
                         href="#"
-                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-app_blue"
                       >
                         ...
                       </a>
@@ -223,7 +223,7 @@ const ShopWithoutSidebar = () => {
                     <li>
                       <a
                         href="#"
-                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-blue"
+                        className="flex py-1.5 px-3.5 duration-200 rounded-[3px] hover:text-white hover:bg-app_blue"
                       >
                         10
                       </a>
@@ -234,7 +234,7 @@ const ShopWithoutSidebar = () => {
                         id="paginationLeft"
                         aria-label="button for pagination left"
                         type="button"
-                        className="flex items-center justify-center w-8 h-9 ease-out duration-200 rounded-[3px] hover:text-white hover:bg-blue disabled:text-gray-4"
+                        className="flex items-center justify-center w-8 h-9 ease-out duration-200 rounded-[3px] hover:text-white hover:bg-app_blue disabled:text-gray-4"
                       >
                         <svg
                           className="fill-current"

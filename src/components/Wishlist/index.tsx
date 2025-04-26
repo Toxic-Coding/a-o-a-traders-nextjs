@@ -10,11 +10,13 @@ export const Wishlist = () => {
   return (
     <>
       <Breadcrumb title={"Wishlist"} pages={["Wishlist"]} />
-      <section className="overflow-hidden py-20 bg-gray-2">
-        <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
+      <section className="overflow-hidden py-20 bg-[#E5EAF4] my-[50px] px-[20px]">
+        <div className="max-w-[1500px] w-full mx-auto">
           <div className="flex flex-wrap items-center justify-between gap-5 mb-7.5">
-            <h2 className="font-medium text-app_text text-2xl">Your Wishlist</h2>
-            <button className="text-app_blue">Clear Wishlist Cart</button>
+            <h2 className="font-medium text-app_text text-2xl">
+              Your Wishlist
+            </h2>
+            <button className="text-app_text">Clear Wishlist Cart</button>
           </div>
 
           <div className="bg-white rounded-[10px] shadow-1">

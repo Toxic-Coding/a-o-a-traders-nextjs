@@ -10,14 +10,14 @@ const Breadcrumb = ({ title, pages }) => {
         </h1>
 
         <ul className="flex items-center gap-2">
-          <li className="text-custom-sm hover:text-app_blue">
+          <li className="text-custom-sm hover:text-orange">
             <Link href="/">Home /</Link>
           </li>
 
           {pages.length > 0 &&
             pages.map((page, key) => (
               <li
-                className="text-custom-sm last:text-app_blue capitalize"
+                className="text-custom-sm last:text-orange capitalize"
                 key={key}
               >
                 {page}
