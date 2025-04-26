@@ -7,14 +7,15 @@ const BlogDetails = () => {
   return (
     <>
       <Breadcrumb title={"Blog Details"} pages={["blog details"]} />
-      <section className="max-w-[1500px] w-full mx-auto overflow-hidden py-20 bg-gray-2 px-[20px]">
-          <div className="w-full rounded-[10px] overflow-hidden mb-7.5">
+
+      <section className="overflow-hidden py-20 bg-gray-2 px-[20px]">
+        <div className="max-w-[1500px] w-full mx-auto">
+          <div className="w-full h-[500px] rounded-[10px] relative overflow-hidden mb-7.5">
             <Image
-              className="rounded-[10px] mx-auto"
+              className="rounded-[10px] object-cover"
               src="/images/blog/blog-details-01.jpg"
               alt="details"
-              width={750}
-              height={477}
+              fill
             />
           </div>
 
@@ -32,7 +33,7 @@ const BlogDetails = () => {
               </a>
             </span>
 
-            <h2 className="font-medium text-dark text-xl lg:text-2xl xl:text-custom-4xl mb-4">
+            <h2 className="font-medium text-app_text text-xl lg:text-2xl xl:text-custom-4xl mb-4">
               What information is needed for shipping?
             </h2>
 
@@ -59,7 +60,7 @@ const BlogDetails = () => {
             </p>
 
             <div className="mt-7.5">
-              <h3 className="font-medium text-dark text-lg xl:text-[26px] xl:leading-[34px] mb-6">
+              <h3 className="font-medium text-app_text text-lg xl:text-[26px] xl:leading-[34px] mb-6">
                 Digital marketplace for Ui/Ux designers.
               </h3>
 
@@ -74,7 +75,7 @@ const BlogDetails = () => {
             </div>
 
             <div className="rounded-xl bg-white pt-7.5 pb-6 px-4 sm:px-7.5 my-7.5">
-              <p className="italic text-dark text-center">
+              <p className="italic text-app_text text-center">
                 ‘‘Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                 do eiusmod incididunt utionals labore et dolore magna aliqua
                 quis fermentum,,
@@ -94,7 +95,7 @@ const BlogDetails = () => {
                 </div>
 
                 <div>
-                  <h4 className="text-dark text-custom-sm">Jhon Drineo</h4>
+                  <h4 className="text-app_text text-custom-sm">Jhon Drineo</h4>
                   <p className="text-custom-xs">Entroprenor</p>
                 </div>
               </a>
@@ -246,6 +247,7 @@ const BlogDetails = () => {
               {/* <!-- Social Links end --> */}
             </div>
           </div>
+        </div>
       </section>
     </>
   );

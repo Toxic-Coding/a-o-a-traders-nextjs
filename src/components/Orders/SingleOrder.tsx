@@ -29,7 +29,7 @@ const SingleOrder = ({ orderItem, smallView }: any) => {
             </p>
           </div>
           <div className="min-w-[175px]">
-            <p className="text-custom-sm text-dark">{orderItem.createdAt}</p>
+            <p className="text-custom-sm text-app_text">{orderItem.createdAt}</p>
           </div>
 
           <div className="min-w-[128px]">
@@ -49,11 +49,11 @@ const SingleOrder = ({ orderItem, smallView }: any) => {
           </div>
 
           <div className="min-w-[213px]">
-            <p className="text-custom-sm text-dark">{orderItem.title}</p>
+            <p className="text-custom-sm text-app_text">{orderItem.title}</p>
           </div>
 
           <div className="min-w-[113px]">
-            <p className="text-custom-sm text-dark">{orderItem.total}</p>
+            <p className="text-custom-sm text-app_text">{orderItem.total}</p>
           </div>
 
           <div className="flex gap-5 items-center">
@@ -69,20 +69,20 @@ const SingleOrder = ({ orderItem, smallView }: any) => {
         <div className="block md:hidden">
           <div className="py-4.5 px-7.5">
             <div className="">
-              <p className="text-custom-sm text-dark">
+              <p className="text-custom-sm text-app_text">
                 <span className="font-bold pr-2"> Order:</span> #
                 {orderItem.orderId.slice(-8)}
               </p>
             </div>
             <div className="">
-              <p className="text-custom-sm text-dark">
+              <p className="text-custom-sm text-app_text">
                 <span className="font-bold pr-2">Date:</span>{" "}
                 {orderItem.createdAt}
               </p>
             </div>
 
             <div className="">
-              <p className="text-custom-sm text-dark">
+              <p className="text-custom-sm text-app_text">
                 <span className="font-bold pr-2">Status:</span>{" "}
                 <span
                   className={`inline-block text-custom-sm  py-0.5 px-2.5 rounded-[30px] capitalize ${
@@ -101,20 +101,20 @@ const SingleOrder = ({ orderItem, smallView }: any) => {
             </div>
 
             <div className="">
-              <p className="text-custom-sm text-dark">
+              <p className="text-custom-sm text-app_text">
                 <span className="font-bold pr-2">Title:</span> {orderItem.title}
               </p>
             </div>
 
             <div className="">
-              <p className="text-custom-sm text-dark">
+              <p className="text-custom-sm text-app_text">
                 <span className="font-bold pr-2">Total:</span> $
                 {orderItem.total}
               </p>
             </div>
 
             <div className="">
-              <p className="text-custom-sm text-dark flex items-center">
+              <p className="text-custom-sm text-app_text flex items-center">
                 <span className="font-bold pr-2">Actions:</span>{" "}
                 <OrderActions
                   toggleDetails={toggleDetails}
