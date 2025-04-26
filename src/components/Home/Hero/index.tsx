@@ -1,44 +1,45 @@
 import React from "react";
 import HeroCarousel from "./HeroCarousel";
 import HeroFeature from "./HeroFeature";
+import { ChevronRight } from "lucide-react";
 
 const Hero = () => {
   return (
     // Hero Section
-    <section className=" overflow-hidden bg-[#E5EAF4] py-[50px] px-[20px]">
+    <section className=" overflow-hidden bg-[#E5EAF4] pb-[50px] pt-[30px] px-[20px]">
       <div className="max-w-[1500px] mx-auto w-full">
-        <div className="flex flex-wrap justify-between mb-[50px]">
+        <div className="flex flex-col xl:flex-row gap-[30px] mb-[50px]">
           {/* Shop By Department */}
-          <div className="xl:max-w-[20%] w-full flex flex-col text-custom-sm text-app_text bg-white rounded-md p-[15px] border-[2px] border-orange">
+          <div className="xl:max-w-[300px] w-full flex flex-col text-custom-sm text-app_text bg-white rounded-md p-[15px] border-[2px] border-orange">
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Office<span>i</span>
+              Office <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Technology<span>i</span>
+              Technology <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Furniture<span>i</span>
+              Furniture <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Janitorial & Sanitation<span>i</span>
+              Janitorial & Sanitation <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Industrial<span>i</span>
+              Industrial <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Food Service<span>i</span>
+              Food Service <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              School Supplies<span>i</span>
+              School Supplies <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Oven<span>i</span>
+              Oven <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Ink & Toner<span>i</span>
+              Ink & Toner <ChevronRight width={16} height={16} />
             </button>
             <button className="flex items-center justify-between font-medium py-[10px] border-b-[1px] border-app_border hover:text-orange">
-              Desk Accessories<span>i</span>
+              Desk Accessories <ChevronRight width={16} height={16} />
             </button>
           </div>
 

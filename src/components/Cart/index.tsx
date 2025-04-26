@@ -18,11 +18,11 @@ const Cart = () => {
       </section>
       {/* <!-- ===== Breadcrumb Section End ===== --> */}
       {cartItems.length > 0 ? (
-        <section className="overflow-hidden py-20 bg-gray-2">
-          <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
+        <section className="overflow-hidden py-20 bg-[#E5EAF4] px-[20px] my-[50px]">
+          <div className="max-w-[1500px] w-full mx-auto">
             <div className="flex flex-wrap items-center justify-between gap-5 mb-7.5">
-              <h2 className="font-medium text-dark text-2xl">Your Cart</h2>
-              <button className="text-blue">Clear Shopping Cart</button>
+              <h2 className="font-medium text-app_text text-2xl">Your Cart</h2>
+              <button className="text-app_blue">Clear Shopping Cart</button>
             </div>
 
             <div className="bg-white rounded-[10px] shadow-1">
@@ -31,23 +31,23 @@ const Cart = () => {
                   {/* <!-- table header --> */}
                   <div className="flex items-center py-5.5 px-7.5">
                     <div className="min-w-[400px]">
-                      <p className="text-dark">Product</p>
+                      <p className="text-app_text">Product</p>
                     </div>
 
                     <div className="min-w-[180px]">
-                      <p className="text-dark">Price</p>
+                      <p className="text-app_text">Price</p>
                     </div>
 
                     <div className="min-w-[275px]">
-                      <p className="text-dark">Quantity</p>
+                      <p className="text-app_text">Quantity</p>
                     </div>
 
                     <div className="min-w-[200px]">
-                      <p className="text-dark">Subtotal</p>
+                      <p className="text-app_text">Subtotal</p>
                     </div>
 
                     <div className="min-w-[50px]">
-                      <p className="text-dark text-right">Action</p>
+                      <p className="text-app_text text-right">Action</p>
                     </div>
                   </div>
 
@@ -68,7 +68,7 @@ const Cart = () => {
         </section>
       ) : (
         <>
-          <div className="text-center mt-8">
+          <div className="text-center my-[50px]">
             <div className="mx-auto pb-7.5">
               <svg
                 className="mx-auto"
@@ -104,7 +104,7 @@ const Cart = () => {
 
             <Link
               href="/shop-with-sidebar"
-              className="w-96 mx-auto flex justify-center font-medium text-white bg-dark py-[13px] px-6 rounded-md ease-out duration-200 hover:bg-opacity-95"
+              className="w-96 mx-auto flex justify-center font-medium text-white bg-app_text py-[13px] px-6 rounded-md ease-out duration-200 hover:bg-opacity-95"
             >
               Continue Shopping
             </Link>

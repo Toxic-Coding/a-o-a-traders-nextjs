@@ -708,9 +708,10 @@ const ShopDetails = () => {
                 <button
                   key={key}
                   onClick={() => setActiveTab(item.id)}
-                  className={`font-medium lg:text-lg ease-out duration-200 hover:text-app_blue relative before:h-0.5 before:bg-app_blue before:absolute before:left-0 before:bottom-0 before:ease-out before:duration-200 hover:before:w-full ${
+                  className={`font-medium lg:text-lg ease-out duration-200 hover:text-orange relative before:h-0.5 before:bg-orange
+                     before:absolute before:left-0 before:bottom-0 before:ease-out before:duration-200 hover:before:w-full ${
                     activeTab === item.id
-                      ? "text-app_blue before:w-full"
+                      ? "text-orange before:w-full"
                       : "text-dark before:w-0"
                   }`}
                 >

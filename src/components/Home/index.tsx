@@ -15,7 +15,6 @@ import Technology from "./Technology";
 import AllInOne from "./AllInOne";
 import NewArrivals from "./NewArrivals";
 import HolidaySeason from "./HolidaySeason";
-import SliderBranding from "./SliderBranding";
 
 const Home = () => {
   return (
