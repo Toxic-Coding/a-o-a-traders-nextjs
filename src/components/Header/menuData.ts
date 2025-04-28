@@ -29,7 +29,7 @@ export const menuData: Menu[] = [
     id: 7,
     title: "About Us",
     newTab: false,
-    path: "#",
+    path: "/aboutus",
   },
   {
     id: 7,
