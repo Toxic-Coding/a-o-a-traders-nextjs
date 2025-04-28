@@ -12,13 +12,13 @@ import QuickViewModal from "@/components/Common/QuickViewModal";
 import CartSidebarModal from "@/components/Common/CartSidebarModal";
 import { PreviewSliderProvider } from "../context/PreviewSliderContext";
 import PreviewSliderModal from "@/components/Common/PreviewSlider";
-
+import NextTopLoader from "nextjs-toploader";
 import ScrollToTop from "@/components/Common/ScrollToTop";
 import PreLoader from "@/components/Common/PreLoader";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin","latin-ext"],
+  subsets: ["latin", "latin-ext"],
 });
 export default function RootLayout({
   children,
@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={poppins.className}>
+        <NextTopLoader showSpinner={false} color="#FF7E00" />
         {loading ? (
           <PreLoader />
         ) : (

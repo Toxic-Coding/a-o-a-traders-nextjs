@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Topbar: React.FC = () => {
@@ -6,9 +7,9 @@ const Topbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div>Express Delivery</div>
         <div className="flex items-center space-x-4">
-          <a href="#" className="hover:text-orange">
+          <Link href="/faqs" className="hover:text-orange">
             FAQ&apos;s
-          </a>
+          </Link>
           <span className="border-l border-gray-300 h-4"></span>
           <a href="#" className="hover:text-orange">
             Order Tracking
