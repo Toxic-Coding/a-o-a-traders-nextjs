@@ -3,17 +3,15 @@ import Breadcrumb from "../Common/Breadcrumb";
 const Faqs = () => {
   return (
     <>
-      <div className="px-4 mx-auto max-w-screen-xl lg:px-6">
-        <Breadcrumb title={"FAQ's"} pages={["FAQ's"]} />
-      </div>
-      <section className="">
-        <div className=" px-4 mx-auto max-w-screen-xl lg:px-6">
-          <div className="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2">
+      <Breadcrumb title={"FAQ's"} pages={["FAQ's"]} />
+      <section className="overflow-hidden bg-gray-2 px-[20px]">
+        <div className="max-w-[1500px] w-full mx-auto">
+          <div className="grid pt-8 text-left md:gap-16 md:grid-cols-2">
             <div>
               <div className="mb-10">
-                <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-4 text-lg font-medium">
                   <svg
-                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +24,7 @@ const Faqs = () => {
                   </svg>
                   What do you mean by &quot;Figma assets&quot;?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   You will have access to download the full Figma project
                   including all of the pages, the components, responsive pages,
                   and also the icons, illustrations, and images included in the
@@ -34,9 +32,9 @@ const Faqs = () => {
                 </p>
               </div>
               <div className="mb-10">
-                <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-4 text-lg font-medium">
                   <svg
-                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -49,16 +47,16 @@ const Faqs = () => {
                   </svg>
                   What does &quot;lifetime access&quot; exactly mean?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   Once you have purchased either the design, code, or both
                   packages, you will have access to all of the future updates
                   based on the roadmap, free of charge.
                 </p>
               </div>
               <div className="mb-10">
-                <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-4 text-lg font-medium">
                   <svg
-                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -71,12 +69,12 @@ const Faqs = () => {
                   </svg>
                   How does support work?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   We&apos;re aware of the importance of well qualified support,
                   that is why we decided that support will only be provided by
                   the authors that actually worked on this project.
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   Feel free to{" "}
                   <a
                     href="#"
@@ -90,9 +88,9 @@ const Faqs = () => {
                 </p>
               </div>
               <div className="mb-10">
-                <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-4 text-lg font-medium">
                   <svg
-                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -105,14 +103,14 @@ const Faqs = () => {
                   </svg>
                   I want to build more than one project. Is that allowed?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   You can use Windster for an unlimited amount of projects,
                   whether it&apos;s a personal website, a SaaS app, or a website
                   for a client. As long as you don&apos;t build a product that
                   will directly compete with Windster either as a UI kit, theme,
                   or template, it&apos;s fine.
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   Find out more information by{" "}
                   <a
                     href="#"
@@ -126,9 +124,9 @@ const Faqs = () => {
             </div>
             <div>
               <div className="mb-10">
-                <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-4 text-lg font-medium">
                   <svg
-                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +139,7 @@ const Faqs = () => {
                   </svg>
                   What does &quot;free updates&quot; include?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   The free updates that will be provided is based on the{" "}
                   <a
                     href="#"
@@ -155,9 +153,9 @@ const Faqs = () => {
                 </p>
               </div>
               <div className="mb-10">
-                <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-4 text-lg font-medium">
                   <svg
-                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +168,7 @@ const Faqs = () => {
                   </svg>
                   What does the free version include?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   The{" "}
                   <a
                     href="#"
@@ -182,15 +180,15 @@ const Faqs = () => {
                   variants, and a dashboard page with the mobile version
                   alongside it.
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   You can use this version for any purposes, because it is
                   open-source under the MIT license.
                 </p>
               </div>
               <div className="mb-10">
-                <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-4 text-lg font-medium">
                   <svg
-                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -203,22 +201,22 @@ const Faqs = () => {
                   </svg>
                   What is the difference between Windster and Tailwind UI?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   Although both Windster and Tailwind UI are built for
                   integration with Tailwind CSS, the main difference is in the
                   design, the pages, the extra components and UI elements that
                   Windster includes.
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   Additionally, Windster is a project that is still in
                   development, and later it will include both the application,
                   marketing, and e-commerce UI interfaces.
                 </p>
               </div>
               <div className="mb-10">
-                <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-4 text-lg font-medium">
                   <svg
-                    className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="flex-shrink-0 mr-2 w-5 h-5 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -231,17 +229,17 @@ const Faqs = () => {
                   </svg>
                   Can I use Windster in open-source projects?
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   Generally, it is accepted to use Windster in open-source
                   projects, as long as it is not a UI library, a theme, a
                   template, a page-builder that would be considered as an
                   alternative to Windster itself.
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   With that being said, feel free to use this design kit for
                   your open-source projects.
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-app_text">
                   Find out more information by{" "}
                   <a
                     href="#"

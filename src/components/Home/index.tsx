@@ -1,10 +1,7 @@
 import React from "react";
 import Hero from "./Hero";
-import Categories from "./Categories";
 import PromoBanner from "./PromoBanner";
-import BestSeller from "./NewArrivals";
 import Testimonials from "./Testimonials";
-import Newsletter from "../Common/Newsletter";
 import SpecialSale from "./Special Sale";
 import Fashion from "./Fashion";
 import OfficeSupply from "./OfficeSupply";
@@ -32,9 +29,6 @@ const Home = () => {
       <HolidaySeason />
       <NewArrivals />
       <Testimonials />
-      {/* <SliderBranding /> */}
-      {/* <Categories /> */}
-      {/* <Newsletter /> */}
     </main>
   );
 };

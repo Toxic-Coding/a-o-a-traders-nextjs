@@ -25,7 +25,7 @@ const CustomerCare = () => {
   };
 
   return (
-    <div className="w-full text-white text-center bg-app_blue rounded-[20px] px-[100px] py-[30px] my-[80px]">
+    <div className="w-full text-white text-center bg-app_blue rounded-[20px] px-[15px] md:px-[100px] py-[30px] my-[50px] lg:my-[80px]">
       <h1 className="text-heading-3 font-semibold mb-[20px]">Customer Care</h1>
       <p className="text-customer-lg">
         We provide 24/7 customer care support. You can contact us at any time

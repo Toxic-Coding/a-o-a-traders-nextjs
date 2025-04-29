@@ -7,8 +7,8 @@ const LoveToHear = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full flex flex-col gap-[30px] items-center my-[80px]">
-      <h1 className="text-heading-2 font-semibold text-app_text">
+    <div className="w-full flex flex-col gap-[30px] items-center mb-[50px] lg:mb-[80px]">
+      <h1 className="text-heading-3 md:text-heading-2 text-center font-semibold text-app_text">
         We’d love to hear from you!
       </h1>
       <p className="text-custom-lg text-center">
