@@ -40,7 +40,7 @@ const BlogGridWithSidebar = () => {
     <>
       <Breadcrumb title={"Blog Grid Sidebar"} pages={["blog grid sidebar"]} />
 
-      <section className="overflow-hidden bg-gray-2 py-[80px] px-[10px] sm:px-[20px]">
+      <section className="overflow-hidden bg-app_bg py-[80px] px-[10px] sm:px-[20px]">
         <div className="max-w-[1500px] w-full mx-auto flex flex-col lg:flex-row gap-7.5">
           {/* <!-- blog grid --> */}
           <div className="lg:max-w-[1100px] w-full">

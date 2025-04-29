@@ -30,6 +30,7 @@ const config: Config = {
       app_border: "#ebebeb",
       app_text: "#333e48",
       app_text2: "#656d74",
+      app_bg: "#E5EAF4",
       meta: {
         "2": "#495270",
         "3": "#606882",
@@ -124,7 +125,7 @@ const config: Config = {
         "custom-4xl": ["36px", "48px"],
         "custom-1": ["22px", "30px"],
         "custom-2": ["32px", "38px"],
-        "custom-3": ["35px", "45px"],  
+        "custom-3": ["35px", "45px"],
       },
       spacing: {
         "11": "2.75rem",

@@ -6,7 +6,7 @@ import { ChevronRight } from "lucide-react";
 const Hero = () => {
   return (
     // Hero Section
-    <section className=" overflow-hidden bg-[#E5EAF4] pb-[50px] pt-[30px] px-[10px] sm:px-[20px]">
+    <section className=" overflow-hidden bg-app_bg pb-[50px] pt-[30px] px-[10px] sm:px-[20px]">
       <div className="max-w-[1500px] mx-auto w-full">
         <div className="flex flex-col lg:flex-row gap-[30px] mb-[50px]">
           {/* Shop By Department */}

@@ -24,7 +24,7 @@ const HeroCarousal = () => {
       className="hero-carousel"
     >
       <SwiperSlide>
-        <div className="w-full h-[500px] relative flex items-center sm:flex-row">
+        <div className="w-full h-[400px] sm:h-[500px] relative flex items-center sm:flex-row">
           <Image
             src="/images/hero/hero1.webp"
             alt="headphone"
@@ -32,7 +32,7 @@ const HeroCarousal = () => {
             className="object-cover rounded-md"
           />
 
-          <div className="max-w-[500px] xl:max-w-[500px] lg:max-w-[400px] text-white relative left-[20px] xl:left-[50px] z-10 pr-[20px]">
+          <div className="max-w-[500px] xl:max-w-[500px] lg:max-w-[400px] text-white relative left-[20px] xl:left-[50px] z-10 pr-[20px] py-[20px]">
             <h1 className="text-heading-4 xl:text-heading-2 lg:text-heading-3 font-semibold">
               <a href="#">Samsung Wireless Speakers Multi-Room Audio</a>
             </h1>
@@ -50,7 +50,7 @@ const HeroCarousal = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="w-full h-[500px] relative flex items-center sm:flex-row">
+        <div className="w-full h-[400px] sm:h-[500px] relative flex items-center sm:flex-row">
           <Image
             src="/images/hero/hero2.webp"
             alt="headphone"
@@ -58,7 +58,7 @@ const HeroCarousal = () => {
             className="object-cover rounded-md"
           />
 
-          <div className="max-w-[500px] xl:max-w-[500px] lg:max-w-[400px] text-white relative left-[20px] xl:left-[50px] z-10 pr-[20px]">
+          <div className="max-w-[500px] xl:max-w-[500px] lg:max-w-[400px] text-white relative left-[20px] xl:left-[50px] z-10 pr-[20px] py-[20px]">
             <h1 className="text-heading-4 lg:text-heading-3 xl:text-heading-2 font-semibold">
               <a href="#">Big Sale Off Washing Machine</a>
             </h1>
@@ -78,7 +78,7 @@ const HeroCarousal = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="w-full h-[500px] relative flex items-center sm:flex-row">
+        <div className="w-full h-[400px] sm:h-[500px] relative flex items-center sm:flex-row">
           <Image
             src="/images/hero/hero3.webp"
             alt="headphone"
@@ -86,7 +86,7 @@ const HeroCarousal = () => {
             className="object-cover rounded-md"
           />
 
-          <div className="max-w-[500px] xl:max-w-[500px] lg:max-w-[400px] text-white relative left-[20px] xl:left-[50px] z-10 pr-[20px]">
+          <div className="max-w-[500px] xl:max-w-[500px] lg:max-w-[400px] text-white relative left-[20px] xl:left-[50px] z-10 pr-[20px] py-[20px]">
             <h1 className="text-heading-4 xl:text-heading-2 lg:text-heading-3 font-semibold">
               <a href="#">Hurry up! American FastFood Everyday</a>
             </h1>

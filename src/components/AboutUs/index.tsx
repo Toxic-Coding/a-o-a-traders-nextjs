@@ -36,7 +36,7 @@ const AboutUs = () => {
     <>
       <Breadcrumb title={"About us"} pages={["About us"]} />
 
-      <section className="overflow-hidden bg-gray-2 py-[20px] sm:py-[50px] px-[20px]">
+      <section className="overflow-hidden bg-gray-2 py-[80px] px-[10px] sm:px-[20px]">
         <div className="max-w-[1500px] w-full mx-auto">
           {/* About Us  */}
           <div className="w-full flex flex-col xl:flex-row items-start xl:items-center justify-between gap-[50px]">

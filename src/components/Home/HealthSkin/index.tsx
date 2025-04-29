@@ -26,7 +26,7 @@ function HealthSkin() {
         <Image
           src="/images/promo/ecobee.png"
           alt="promo img"
-          className="hidden lg-block absolute bottom-0 right-[-80px] -z-1"
+          className="hidden lg:block absolute bottom-0 right-[-80px] -z-1"
           width={600}
           height={400}
         />

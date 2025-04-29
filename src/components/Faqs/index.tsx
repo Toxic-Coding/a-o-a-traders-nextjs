@@ -4,9 +4,9 @@ const Faqs = () => {
   return (
     <>
       <Breadcrumb title={"FAQ's"} pages={["FAQ's"]} />
-      <section className="overflow-hidden bg-gray-2 px-[20px]">
+      <section className="overflow-hidden bg-app_bg py-[80px] px-[10px] sm:px-[20px]">
         <div className="max-w-[1500px] w-full mx-auto">
-          <div className="grid pt-8 text-left md:gap-16 md:grid-cols-2">
+          <div className="grid text-left md:gap-16 md:grid-cols-2">
             <div>
               <div className="mb-10">
                 <h3 className="flex items-center mb-4 text-lg font-medium">

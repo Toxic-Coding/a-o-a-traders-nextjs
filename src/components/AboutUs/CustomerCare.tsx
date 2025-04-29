@@ -12,11 +12,11 @@ const CustomerCare = () => {
   };
 
   const handlePhone = () => {
-    window.location.href = "tel:+923097230656";
+    window.location.href = "tel:(760) 590-4250";
   };
 
   const handleWhatsapp = () => {
-    const number = "+923097230656";
+    const number = "(760) 590-4250";
     const message = "Hello, I need assistance!";
     window.open(
       `https://wa.me/${number}?text=${encodeURIComponent(message)}`,
@@ -38,23 +38,23 @@ const CustomerCare = () => {
           className="h-[148px] bg-white flex flex-col items-center justify-center gap-[15px] rounded-tr-[20px] rounded-bl-[20px] cursor-pointer"
           onClick={handleEmail}
         >
-          <Mail width={40} height={40} className="text-app_blue" />
-          <h5 className="text-custom-lg">Ahsanmeharj@gmail.com</h5>
+          <Mail width={40} height={40} className="text-orange" />
+          <h5 className="text-custom-lg">Aoatradersinc@gmail.com</h5>
         </div>
 
         <div
           className="h-[148px] bg-white flex flex-col items-center justify-center gap-[15px] rounded-tr-[20px] rounded-bl-[20px] cursor-pointer"
           onClick={handlePhone}
         >
-          <PhoneCall width={40} height={40} className="text-app_blue" />
-          <h5 className="text-custom-lg">+92 309 7230656</h5>
+          <PhoneCall width={40} height={40} className="text-orange" />
+          <h5 className="text-custom-lg">(760) 590-4250</h5>
         </div>
 
         <div
           className="h-[148px] bg-white flex flex-col items-center justify-center gap-[15px] rounded-tr-[20px] rounded-bl-[20px] cursor-pointer"
           onClick={handleWhatsapp}
         >
-          <MessageCircle width={40} height={40} className="text-app_blue" />
+          <MessageCircle width={40} height={40} className="text-orange" />
           <h5 className="text-custom-lg">Whatsapp</h5>
         </div>
       </div>

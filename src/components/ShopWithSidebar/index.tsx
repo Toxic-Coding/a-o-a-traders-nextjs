@@ -104,11 +104,11 @@ const ShopWithSidebar = () => {
         title={"Explore All Products"}
         pages={["shop", "/", "shop with sidebar"]}
       />
-      <section className="overflow-hidden relative bg-[#f3f4f6] py-[50px] px-[10px] sm:px-[20px]">
+      <section className="overflow-hidden relative bg-app_bg py-[80px] px-[10px] sm:px-[20px]">
         <div className="max-w-[1500px] w-full mx-auto flex gap-[30px]">
           {/* <!-- Sidebar Start --> */}
           <div
-            className={`sidebar-content fixed z-10 left-0 top-0 xl:translate-x-0 xl:static max-w-[310px] xl:max-w-[270px] w-full ease-out duration-200 ${
+            className={`sidebar-content fixed z-[500px] left-0 top-0 xl:translate-x-0 xl:static max-w-[310px] xl:max-w-[270px] w-full ease-out duration-200 ${
               productSidebar
                 ? "translate-x-0 bg-white p-5 h-screen overflow-y-auto"
                 : "-translate-x-full"

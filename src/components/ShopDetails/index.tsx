@@ -101,7 +101,7 @@ const ShopDetails = () => {
         "Please add product"
       ) : (
         <>
-          <section className="max-w-[1500px] w-full mx-auto overflow-hidden relative px-[10px] sm:px-[20px] my-[50px]">
+          <section className="max-w-[1500px] w-full mx-auto overflow-hidden relative py-[80px] px-[10px] sm:px-[20px]">
             <div className="flex flex-col lg:flex-row gap-7.5 xl:gap-17.5">
               <div className="lg:max-w-[570px] w-full">
                 <div className="lg:min-h-[512px] rounded-lg shadow-1 bg-gray-2 p-4 sm:p-7.5 relative flex items-center justify-center">

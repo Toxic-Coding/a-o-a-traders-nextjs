@@ -18,7 +18,7 @@ const Cart = () => {
       </section>
       {/* <!-- ===== Breadcrumb Section End ===== --> */}
       {cartItems.length > 0 ? (
-        <section className="overflow-hidden py-20 bg-[#E5EAF4] px-[10px] sm:px-[20px] my-[50px]">
+        <section className="overflow-hidden py-20 bg-app_bg px-[10px] sm:px-[20px] my-[50px]">
           <div className="max-w-[1500px] w-full mx-auto">
             <div className="flex flex-wrap items-center justify-between gap-5 mb-7.5">
               <h2 className="font-medium text-app_text text-2xl">Your Cart</h2>
