@@ -37,7 +37,7 @@ const CartSidebarModal = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-99999 overflow-y-auto no-scrollbar w-full h-screen bg-gray-3 ease-linear duration-300 ${
+      className={`fixed top-0 left-0 z-99999 overflow-y-auto no-scrollbar w-full h-screen ease-linear duration-300 ${
         isCartModalOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
@@ -50,7 +50,7 @@ const CartSidebarModal = () => {
             <button
               onClick={() => closeCartModal()}
               aria-label="button for close modal"
-              className="flex items-center justify-center ease-in duration-150 overflow-hidden bg-app_border text-app_text hover:text-orange"
+              className="flex items-center justify-center ease-in duration-150 overflow-hidden  text-app_text hover:text-orange"
             >
               <svg
                 className="fill-current"
