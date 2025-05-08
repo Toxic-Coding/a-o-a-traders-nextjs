@@ -27,6 +27,7 @@ const config: Config = {
       white: "#FFFFFF",
       body: "#6C6F93",
       app_blue: "hsl(215,61%,47%)",
+      app_orange:"#FF7E00",
       app_border: "#ebebeb",
       app_text: "#333e48",
       app_text2: "#656d74",
