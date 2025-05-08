@@ -31,6 +31,7 @@ const config: Config = {
       app_border: "#ebebeb",
       app_text: "#333e48",
       app_text2: "#656d74",
+      app_bg: "#E5EAF4",
       meta: {
         "2": "#495270",
         "3": "#606882",
@@ -126,10 +127,6 @@ const config: Config = {
         "custom-1": ["22px", "30px"],
         "custom-2": ["32px", "38px"],
         "custom-3": ["35px", "45px"],
-        "head-1": ["48px", "64px"],
-        "head-2": ["24px", "30px"],
-        "head-3": ["16px", "24px"],
-        "head-4": ["14px", "22px"],
       },
       spacing: {
         "11": "2.75rem",
@@ -304,29 +301,3 @@ const config: Config = {
   plugins: [require("tailwindcss-animate")],
 };
 export default config;
-
-// import type { Config } from "tailwindcss";
-
-// const defaultTheme = require("tailwindcss/defaultTheme");
-
-// const config: Config = {
-//   content: [
-//     "./src/**/*.{js,ts,jsx,tsx,mdx}",
-//     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-//     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-//   ],
-//   theme: {
-//     fontFamily: {
-//       "euclid-circular-a": ["Euclid Circular A"],
-//     },
-
-//     colors: {
-//       primary: "#024bac",
-//       secondary: "#ff7e00",
-//       border: "#ebebeb",
-//       text: "#333e48"
-//     },
-//   },
-//   plugins: [require("tailwindcss-animate")],
-// };
-// export default config;

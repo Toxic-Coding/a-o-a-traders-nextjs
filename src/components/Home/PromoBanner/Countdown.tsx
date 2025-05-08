@@ -27,7 +27,7 @@ const CounDown = () => {
   }, []);
 
   return (
-    <section className="max-w-[1500px] w-full mx-auto px-4 sm:px-8 xl:px-0 mb-7.5">
+    <section className="max-w-[1500px] w-full mx-auto mb-7.5">
       <div className="relative overflow-hidden z-1 rounded-lg bg-[#D0E9F3] p-4 sm:p-7.5 lg:p-10 xl:p-15">
         <div className="max-w-[422px] w-full">
           <span className="block font-medium text-custom-1 text-orange mb-2.5">

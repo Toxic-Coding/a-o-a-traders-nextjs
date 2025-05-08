@@ -76,7 +76,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={` left-0 top-0 w-full z-50 bg-white transition-all ease-in-out duration-300 px-[20px] ${
+        className={` left-0 top-0 w-full z-50 bg-white transition-all ease-in-out duration-300 px-[10px] sm:px-[20px] ${
           stickyMenu && "shadow"
         }`}
       >
@@ -168,6 +168,22 @@ const Header = () => {
                 {isLoading ? (
                   <div className="flex items-center">
                     <Spinner size="medium" color="orange" />
+            </div>
+
+            {/* <!-- header top right --> */}
+            <div className="flex w-full lg:w-auto items-center gap-7.5">
+              <div className="flex items-center gap-4">
+                <Link href="/signin" className="flex items-center gap-3">
+                  <UserRound width={24} height={24} className="text-app_blue" />
+
+                  <div>
+                    <span className="block text-2xs text-app_text uppercase">
+                      account
+                    </span>
+                    <p className="font-medium text-custom-sm text-app_text">
+                      Sign In
+                    </p>
+
                   </div>
                 ) : (
                   <Link
@@ -201,7 +217,7 @@ const Header = () => {
                   </Link>
                 )}
 
-                <button className="hidden xl:flex items-center gap-3">
+                <button className="flex items-center gap-3">
                   <span className="inline-block relative">
                     <Heart width={24} height={24} className="text-app_blue" />
 
@@ -214,7 +230,7 @@ const Header = () => {
                     <span className="block text-2xs text-app_text uppercase">
                       Favorite
                     </span>
-                    <p className="font-medium text-custom-sm text-app_text">
+                    <p className="font-medium text-custom-sm text-app_text whitespace-nowrap">
                       My Wishlist
                     </p>
                   </div>
@@ -291,7 +307,7 @@ const Header = () => {
         ref={ref}
         initial={{ top: 0, position: "relative" }}
         animate={controls}
-        className="border-t border-gray-3 bg-app_blue text-white"
+        className="border-t border-gray-3 bg-app_blue text-white px-[20px]"
       >
         <div className="max-w-[1500px] mx-auto sm:px-7.5 xl:px-0 px-[20px]">
           <div className="flex items-center justify-between">

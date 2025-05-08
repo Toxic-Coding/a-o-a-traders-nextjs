@@ -4,7 +4,7 @@ import CounDown from "./Countdown";
 
 const PromoBanner = () => {
   return (
-    <section className="max-w-[1500px] mx-auto w-full overflow-hidden px-[20px] my-[50px]">
+    <section className="max-w-[1500px] mx-auto w-full overflow-hidden px-[10px] sm:px-[20px] my-[50px]">
       <CounDown />
 
       <div className="grid gap-7.5 grid-cols-1 lg:grid-cols-2">
@@ -13,12 +13,12 @@ const PromoBanner = () => {
           <Image
             src="/images/promo/promo-02.png"
             alt="promo img"
-            className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-10 -z-1"
+            className="hidden sm:block absolute top-1/2 -translate-y-1/2 left-3 sm:left-10 -z-1"
             width={241}
             height={241}
           />
 
-          <div className="text-right">
+          <div className="text-right ">
             <span className="block text-lg text-app_text mb-1.5">
               Foldable Motorised Treadmill
             </span>
@@ -45,7 +45,7 @@ const PromoBanner = () => {
           <Image
             src="/images/promo/promo-03.png"
             alt="promo img"
-            className="absolute top-1/2 -translate-y-1/2 right-3 sm:right-8.5 -z-1"
+            className="hidden sm:block absolute top-1/2 -translate-y-1/2 right-3 sm:right-8.5 -z-1"
             width={200}
             height={200}
           />
