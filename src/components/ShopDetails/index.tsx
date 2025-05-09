@@ -101,7 +101,7 @@ const ShopDetails = () => {
         "Please add product"
       ) : (
         <>
-          <section className="max-w-[1500px] w-full mx-auto overflow-hidden relative px-[20px] my-[50px]">
+          <section className="max-w-[1500px] w-full mx-auto overflow-hidden relative py-[80px] px-[10px] sm:px-[20px]">
             <div className="flex flex-col lg:flex-row gap-7.5 xl:gap-17.5">
               <div className="lg:max-w-[570px] w-full">
                 <div className="lg:min-h-[512px] rounded-lg shadow-1 bg-gray-2 p-4 sm:p-7.5 relative flex items-center justify-center">
@@ -109,7 +109,7 @@ const ShopDetails = () => {
                     <button
                       onClick={handlePreviewSlider}
                       aria-label="button for zoom"
-                      className="gallery__Image w-11 h-11 rounded-[5px] bg-gray-1 shadow-1 flex items-center justify-center ease-out duration-200 text-dark hover:text-app_blue absolute top-4 lg:top-6 right-4 lg:right-6 z-50"
+                      className="gallery__Image w-11 h-11 rounded-[5px] bg-gray-1 shadow-1 flex items-center justify-center ease-out duration-200 text-app_text hover:text-app_blue absolute top-4 lg:top-6 right-4 lg:right-6 z-50"
                     >
                       <svg
                         className="fill-current"
@@ -163,7 +163,7 @@ const ShopDetails = () => {
               {/* <!-- product content --> */}
               <div className="max-w-[539px] w-full">
                 <div className="flex items-center justify-between mb-3">
-                  <h2 className="font-semibold text-xl sm:text-2xl xl:text-custom-3 text-dark">
+                  <h2 className="font-semibold text-xl sm:text-2xl xl:text-custom-3 text-app_text">
                     {product.title}
                   </h2>
 
@@ -315,7 +315,7 @@ const ShopDetails = () => {
                 </div>
 
                 <h3 className="font-medium text-custom-1 mb-4.5">
-                  <span className="text-sm sm:text-base text-dark">
+                  <span className="text-sm sm:text-base text-app_text">
                     Price: ${product.price}
                   </span>
                   <span className="line-through">
@@ -335,13 +335,14 @@ const ShopDetails = () => {
                     >
                       <path
                         d="M13.3589 8.35863C13.603 8.11455 13.603 7.71882 13.3589 7.47475C13.1149 7.23067 12.7191 7.23067 12.4751 7.47475L8.75033 11.1995L7.5256 9.97474C7.28152 9.73067 6.8858 9.73067 6.64172 9.97474C6.39764 10.2188 6.39764 10.6146 6.64172 10.8586L8.30838 12.5253C8.55246 12.7694 8.94819 12.7694 9.19227 12.5253L13.3589 8.35863Z"
-                        fill="#3C50E0"
+                        fill="#2E67B1"
                       />
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
                         d="M10.0003 1.04169C5.05277 1.04169 1.04199 5.05247 1.04199 10C1.04199 14.9476 5.05277 18.9584 10.0003 18.9584C14.9479 18.9584 18.9587 14.9476 18.9587 10C18.9587 5.05247 14.9479 1.04169 10.0003 1.04169ZM2.29199 10C2.29199 5.74283 5.74313 2.29169 10.0003 2.29169C14.2575 2.29169 17.7087 5.74283 17.7087 10C17.7087 14.2572 14.2575 17.7084 10.0003 17.7084C5.74313 17.7084 2.29199 14.2572 2.29199 10Z"
-                        fill="#3C50E0"
+                        fill="#2E67B1
+"
                       />
                     </svg>
                     Free delivery available
@@ -357,13 +358,13 @@ const ShopDetails = () => {
                     >
                       <path
                         d="M13.3589 8.35863C13.603 8.11455 13.603 7.71882 13.3589 7.47475C13.1149 7.23067 12.7191 7.23067 12.4751 7.47475L8.75033 11.1995L7.5256 9.97474C7.28152 9.73067 6.8858 9.73067 6.64172 9.97474C6.39764 10.2188 6.39764 10.6146 6.64172 10.8586L8.30838 12.5253C8.55246 12.7694 8.94819 12.7694 9.19227 12.5253L13.3589 8.35863Z"
-                        fill="#3C50E0"
+                        fill="#2E67B1"
                       />
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
                         d="M10.0003 1.04169C5.05277 1.04169 1.04199 5.05247 1.04199 10C1.04199 14.9476 5.05277 18.9584 10.0003 18.9584C14.9479 18.9584 18.9587 14.9476 18.9587 10C18.9587 5.05247 14.9479 1.04169 10.0003 1.04169ZM2.29199 10C2.29199 5.74283 5.74313 2.29169 10.0003 2.29169C14.2575 2.29169 17.7087 5.74283 17.7087 10C17.7087 14.2572 14.2575 17.7084 10.0003 17.7084C5.74313 17.7084 2.29199 14.2572 2.29199 10Z"
-                        fill="#3C50E0"
+                        fill="#2E67B1"
                       />
                     </svg>
                     Sales 30% Off Use Code: PROMO30
@@ -375,7 +376,7 @@ const ShopDetails = () => {
                     {/* <!-- details item --> */}
                     <div className="flex items-center gap-4">
                       <div className="min-w-[65px]">
-                        <h4 className="font-medium text-dark">Color:</h4>
+                        <h4 className="font-medium text-app_text">Color:</h4>
                       </div>
 
                       <div className="flex items-center gap-2.5">
@@ -413,7 +414,7 @@ const ShopDetails = () => {
                     {/* <!-- details item --> */}
                     <div className="flex items-center gap-4">
                       <div className="min-w-[65px]">
-                        <h4 className="font-medium text-dark">Storage:</h4>
+                        <h4 className="font-medium text-app_text">Storage:</h4>
                       </div>
 
                       <div className="flex items-center gap-4">
@@ -481,7 +482,7 @@ const ShopDetails = () => {
                     {/* // <!-- details item --> */}
                     <div className="flex items-center gap-4">
                       <div className="min-w-[65px]">
-                        <h4 className="font-medium text-dark">Type:</h4>
+                        <h4 className="font-medium text-app_text">Type:</h4>
                       </div>
 
                       <div className="flex items-center gap-4">
@@ -549,7 +550,7 @@ const ShopDetails = () => {
                     {/* // <!-- details item --> */}
                     <div className="flex items-center gap-4">
                       <div className="min-w-[65px]">
-                        <h4 className="font-medium text-dark">Sim:</h4>
+                        <h4 className="font-medium text-app_text">Sim:</h4>
                       </div>
 
                       <div className="flex items-center gap-4">
@@ -710,10 +711,10 @@ const ShopDetails = () => {
                   onClick={() => setActiveTab(item.id)}
                   className={`font-medium lg:text-lg ease-out duration-200 hover:text-orange relative before:h-0.5 before:bg-orange
                      before:absolute before:left-0 before:bottom-0 before:ease-out before:duration-200 hover:before:w-full ${
-                    activeTab === item.id
-                      ? "text-orange before:w-full"
-                      : "text-dark before:w-0"
-                  }`}
+                       activeTab === item.id
+                         ? "text-orange before:w-full"
+                         : "text-app_text before:w-0"
+                     }`}
                 >
                   {item.title}
                 </button>
@@ -730,7 +731,7 @@ const ShopDetails = () => {
                 }`}
               >
                 <div className="max-w-[670px] w-full">
-                  <h2 className="font-medium text-2xl text-dark mb-7">
+                  <h2 className="font-medium text-2xl text-app_text mb-7">
                     Specifications:
                   </h2>
 
@@ -754,7 +755,7 @@ const ShopDetails = () => {
                 </div>
 
                 <div className="max-w-[447px] w-full">
-                  <h2 className="font-medium text-2xl text-dark mb-7">
+                  <h2 className="font-medium text-2xl text-app_text mb-7">
                     Care & Maintenance:
                   </h2>
 
@@ -785,20 +786,20 @@ const ShopDetails = () => {
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">Brand</p>
+                    <p className="text-sm sm:text-base text-app_text">Brand</p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">Apple</p>
+                    <p className="text-sm sm:text-base text-app_text">Apple</p>
                   </div>
                 </div>
 
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">Model</p>
+                    <p className="text-sm sm:text-base text-app_text">Model</p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       iPhone 14 Plus
                     </p>
                   </div>
@@ -807,24 +808,26 @@ const ShopDetails = () => {
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Display Size
                     </p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">6.7 inches</p>
+                    <p className="text-sm sm:text-base text-app_text">
+                      6.7 inches
+                    </p>
                   </div>
                 </div>
 
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Display Type
                     </p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Super Retina XDR OLED, HDR10, Dolby Vision, 800 nits
                       (HBM), 1200 nits (peak)
                     </p>
@@ -834,12 +837,12 @@ const ShopDetails = () => {
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Display Resolution
                     </p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       1284 x 2778 pixels, 19.5:9 ratio
                     </p>
                   </div>
@@ -848,10 +851,12 @@ const ShopDetails = () => {
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">Chipset</p>
+                    <p className="text-sm sm:text-base text-app_text">
+                      Chipset
+                    </p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Apple A15 Bionic (5 nm)
                     </p>
                   </div>
@@ -860,10 +865,10 @@ const ShopDetails = () => {
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">Memory</p>
+                    <p className="text-sm sm:text-base text-app_text">Memory</p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       128GB 6GB RAM | 256GB 6GB RAM | 512GB 6GB RAM
                     </p>
                   </div>
@@ -872,12 +877,12 @@ const ShopDetails = () => {
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Main Camera
                     </p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       12MP + 12MP | 4K@24/25/30/60fps, stereo sound rec.
                     </p>
                   </div>
@@ -886,12 +891,12 @@ const ShopDetails = () => {
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Selfie Camera
                     </p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       12 MP | 4K@24/25/30/60fps, 1080p@25/30/60/120fps, gyro-EIS
                     </p>
                   </div>
@@ -900,12 +905,12 @@ const ShopDetails = () => {
                 {/* <!-- info item --> */}
                 <div className="rounded-md even:bg-gray-1 flex py-4 px-4 sm:px-5">
                   <div className="max-w-[450px] min-w-[140px] w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Battery Info
                     </p>
                   </div>
                   <div className="w-full">
-                    <p className="text-sm sm:text-base text-dark">
+                    <p className="text-sm sm:text-base text-app_text">
                       Li-Ion 4323 mAh, non-removable | 15W wireless (MagSafe),
                       7.5W wireless (Qi)
                     </p>
@@ -923,7 +928,7 @@ const ShopDetails = () => {
                 }`}
               >
                 <div className="max-w-[570px] w-full">
-                  <h2 className="font-medium text-2xl text-dark mb-9">
+                  <h2 className="font-medium text-2xl text-app_text mb-9">
                     03 Review for this product
                   </h2>
 
@@ -943,7 +948,7 @@ const ShopDetails = () => {
                           </div>
 
                           <div>
-                            <h3 className="font-medium text-dark">
+                            <h3 className="font-medium text-app_text">
                               Davis Dorwart
                             </h3>
                             <p className="text-custom-sm">
@@ -1035,7 +1040,7 @@ const ShopDetails = () => {
                         </div>
                       </div>
 
-                      <p className="text-dark mt-6">
+                      <p className="text-app_text mt-6">
                         “Lorem ipsum dolor sit amet, adipiscing elit. Donec
                         malesuada justo vitaeaugue suscipit beautiful vehicula’’
                       </p>
@@ -1056,7 +1061,7 @@ const ShopDetails = () => {
                           </div>
 
                           <div>
-                            <h3 className="font-medium text-dark">
+                            <h3 className="font-medium text-app_text">
                               Davis Dorwart
                             </h3>
                             <p className="text-custom-sm">
@@ -1148,7 +1153,7 @@ const ShopDetails = () => {
                         </div>
                       </div>
 
-                      <p className="text-dark mt-6">
+                      <p className="text-app_text mt-6">
                         “Lorem ipsum dolor sit amet, adipiscing elit. Donec
                         malesuada justo vitaeaugue suscipit beautiful vehicula’’
                       </p>
@@ -1169,7 +1174,7 @@ const ShopDetails = () => {
                           </div>
 
                           <div>
-                            <h3 className="font-medium text-dark">
+                            <h3 className="font-medium text-app_text">
                               Davis Dorwart
                             </h3>
                             <p className="text-custom-sm">
@@ -1261,7 +1266,7 @@ const ShopDetails = () => {
                         </div>
                       </div>
 
-                      <p className="text-dark mt-6">
+                      <p className="text-app_text mt-6">
                         “Lorem ipsum dolor sit amet, adipiscing elit. Donec
                         malesuada justo vitaeaugue suscipit beautiful vehicula’’
                       </p>
@@ -1271,7 +1276,7 @@ const ShopDetails = () => {
 
                 <div className="max-w-[550px] w-full">
                   <form>
-                    <h2 className="font-medium text-2xl text-dark mb-3.5">
+                    <h2 className="font-medium text-2xl text-app_text mb-3.5">
                       Add a Review
                     </h2>
 
@@ -1377,14 +1382,14 @@ const ShopDetails = () => {
                           id="comments"
                           rows={5}
                           placeholder="Your comments"
-                          className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full p-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-app_blue"
+                          className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-app_text w-full p-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-app_blue"
                         ></textarea>
 
                         <span className="flex items-center justify-between mt-2.5">
-                          <span className="text-custom-sm text-dark-4">
+                          <span className="text-custom-sm text-app_text">
                             Maximum
                           </span>
-                          <span className="text-custom-sm text-dark-4">
+                          <span className="text-custom-sm text-app_text">
                             0/250
                           </span>
                         </span>
@@ -1401,7 +1406,7 @@ const ShopDetails = () => {
                             name="name"
                             id="name"
                             placeholder="Your name"
-                            className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-app_blue"
+                            className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-app_text w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-app_blue"
                           />
                         </div>
 
@@ -1415,14 +1420,14 @@ const ShopDetails = () => {
                             name="email"
                             id="email"
                             placeholder="Your email"
-                            className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-app_blue"
+                            className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-app_text w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-app_blue"
                           />
                         </div>
                       </div>
 
                       <button
                         type="submit"
-                        className="inline-flex font-medium text-white bg-blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-app_blue"
+                        className="inline-flex font-medium text-white bg-app_blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-app_blue"
                       >
                         Submit Reviews
                       </button>

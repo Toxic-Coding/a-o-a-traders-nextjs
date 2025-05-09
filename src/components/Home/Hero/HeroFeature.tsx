@@ -1,24 +1,25 @@
 import React from "react";
 import Image from "next/image";
+import { BadgeCheck, BadgePercent, Rocket, UsersRound } from "lucide-react";
 
 const featureData = [
   {
-    img: "/images/icons/icon-01.svg",
+    icon: <Rocket width={35} height={35} strokeWidth={1} className="text-orange" />,
     title: "Fastest Shipping",
     description: "Fastest Shipping in US",
   },
   {
-    img: "/images/icons/icon-02.svg",
+    icon: <BadgeCheck width={35} height={35} strokeWidth={1} className="text-orange"/>,
     title: "Satisfaction Guaranteed",
     description: "Best Price Guarantee",
   },
   {
-    img: "/images/icons/icon-03.svg",
+    icon: <UsersRound width={35} height={35} strokeWidth={1} className="text-orange"/>,
     title: "Customer Support",
     description: "Phone Support 24/7",
   },
   {
-    img: "/images/icons/icon-04.svg",
+    icon: <BadgePercent width={35} height={35} strokeWidth={1} className="text-orange"/>,
     title: "Membership Discount",
     description: "Upto 40% Discount All Products",
   },
@@ -26,10 +27,10 @@ const featureData = [
 
 const HeroFeature = () => {
   return (
-    <div className="max-w-[1500px] mx-auto flex flex-wrap items-center justify-between">
+    <div className="max-w-[1500px] mx-auto flex flex-wrap items-center justify-between gap-[20px]">
       {featureData.map((item, key) => (
         <div className="flex items-center gap-4" key={key}>
-          <Image src={item.img} alt="icons" width={40} height={41} />
+          {item.icon}
 
           <div>
             <h3 className="font-medium text-custom-lg text-app_text">

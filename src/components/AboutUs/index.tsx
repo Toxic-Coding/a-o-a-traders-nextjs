@@ -36,15 +36,15 @@ const AboutUs = () => {
     <>
       <Breadcrumb title={"About us"} pages={["About us"]} />
 
-      <section className="overflow-hidden py-20 bg-gray-2 px-[20px]">
+      <section className="overflow-hidden bg-gray-2 py-[80px] px-[10px] sm:px-[20px]">
         <div className="max-w-[1500px] w-full mx-auto">
           {/* About Us  */}
-          <div className="w-full flex flex-col xl:flex-row items-center justify-between">
-            <div className="xl:max-w-[650px] full">
+          <div className="w-full flex flex-col xl:flex-row items-start xl:items-center justify-between gap-[50px]">
+            <div className="max-w-[650px] full">
               <h5 className="text-custom-sm font-medium text-orange">
                 Welcome to AOA Traders
               </h5>
-              <h1 className="text-heading-2 font-semibold text-app_text my-[15px]">
+              <h1 className="text-heading-3 md:text-heading-2 font-semibold text-app_text my-[15px]">
                 Our Perfect Trendy Shopping Store
               </h1>
               <p className="text-custom-lg">
@@ -56,7 +56,7 @@ const AboutUs = () => {
                 products and experience hassle-free shopping like never before.
               </p>
 
-              <div className="full flex flex-wrap items-center justify-between mt-[35px]">
+              <div className="full flex flex-col sm:flex-row items-center justify-between gap-y-[20px] mt-[35px]">
                 <div className="w-fit">
                   <h2 className="text-heading-5 text-center font-semibold text-app_blue">
                     {count1}k+
@@ -86,13 +86,13 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="xl:max-w-[750px] full">
+            <div className="w-full xl:max-w-[750px]">
               <Image
                 src="/images/aboutus/about.avif"
                 alt="Error-Image"
                 width={800}
                 height={600}
-                className="w-full h-[550px] max-2:h-[300px] object-cover rounded-[30px]"
+                className="w-full xl:w-[750px] h-[300px] sm:h-[600px] object-cover rounded-[30px]"
               />
             </div>
           </div>

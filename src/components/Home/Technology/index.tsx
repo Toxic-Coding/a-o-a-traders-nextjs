@@ -22,9 +22,9 @@ const Technology = () => {
     sliderRef.current.swiper.slideNext();
   }, []);
   return (
-    <section className="max-w-[1500px] w-full mx-auto overflow-hidden px-[20px] my-[50px]">
+    <section className="max-w-[1500px] w-full mx-auto overflow-hidden px-[10px] sm:px-[20px] my-[50px]">
       {/* <!-- section title --> */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-[20px]">
         <div>
           <span className="flex items-center gap-2.5 font-medium text-app_text mb-1.5">
             <Calendar width={16} height={16} className="text-app_blue" />
@@ -34,7 +34,7 @@ const Technology = () => {
             Technology
           </h2>
         </div>
-        <div className="flex items-center gap-[15px]">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[10px] sm:gap-[25px]">
           <h3 className="text-custom-sm text-app_text font-medium cursor-pointer hover:text-orange">
             Technology
           </h3>
@@ -67,13 +67,26 @@ const Technology = () => {
       {/* <!-- New Arrivals item --> */}
       <Swiper
         ref={sliderRef}
-        slidesPerView={4}
         spaceBetween={100}
         className="justify-between"
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          786: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+          1280: {
+            slidesPerView: 4,
+          },
+        }}
       >
         {shopData.map((item, key) => (
           <SwiperSlide key={key}>
-            <ProductItem item={item} key={key} />
+            <ProductItem item={item} />
           </SwiperSlide>
         ))}
       </Swiper>

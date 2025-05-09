@@ -23,7 +23,7 @@ const ShopWithoutSidebar = () => {
         title={"Explore All Products"}
         pages={["shop", "/", "shop without sidebar"]}
       />
-      <section className="overflow-hidden relative bg-[#f3f4f6] py-[50px] px-[20px]">
+      <section className="overflow-hidden relative bg-app_bg py-[80px] px-[10px] sm:px-[20px]">
           <div className="max-w-[1500px] w-full mx-auto flex gap-7.5">
             {/* // <!-- Content Start --> */}
             <div className="w-full">

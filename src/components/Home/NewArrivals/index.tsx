@@ -6,7 +6,7 @@ import { Calendar } from "lucide-react";
 
 const NewArrivals = () => {
   return (
-    <section className="overflow-hidden my-[70px] px-[20px]">
+    <section className="overflow-hidden my-[70px] px-[10px] sm:px-[20px]">
       <div className="max-w-[1500px] w-full mx-auto">
         {/* <!-- section title --> */}
         <div className="mb-7 flex items-center justify-between">

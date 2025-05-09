@@ -6,7 +6,7 @@ const MailSuccess = () => {
   return (
     <>
       <Breadcrumb title={"MailSuccess"} pages={["MailSuccess"]} />
-      <section className="overflow-hidden py-20 bg-gray-2 px-[20px] my-[50px]">
+      <section className="overflow-hidden py-20 bg-app_bg py-[80px] px-[10px] sm:px-[20px]">
         <div className="max-w-[1500px] w-full mx-auto">
           <div className="bg-white rounded-xl shadow-1 px-4 py-10 sm:py-15 lg:py-20 xl:py-25">
             <div className="text-center">

@@ -23,7 +23,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="max-w-[1500px] w-full mx-auto mb-[50px] px-[20px]">
+    <section className="max-w-[1500px] w-full mx-auto mb-[50px] px-[10px] sm:px-[20px]">
       <div className="swiper testimonial-carousel common-carousel p-5">
         {/* <!-- section title --> */}
         <div className="mb-10 flex items-center justify-between">

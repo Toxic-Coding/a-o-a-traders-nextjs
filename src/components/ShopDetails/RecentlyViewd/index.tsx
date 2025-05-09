@@ -83,9 +83,22 @@ const RecentlyViewdItems = () => {
 
         <Swiper
           ref={sliderRef}
-          slidesPerView={4}
-          spaceBetween={20}
+          spaceBetween={100}
           className="justify-between"
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            786: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 4,
+            },
+          }}
         >
           {shopData.map((item, key) => (
             <SwiperSlide key={key}>

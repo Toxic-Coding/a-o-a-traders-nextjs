@@ -6,7 +6,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full overflow-hidden bg-app_blue text-white px-[50px] py-[40px]">
+    <footer className="w-full overflow-hidden bg-app_blue text-white px-[10px] sm:px-[20px] py-[40px]">
       <div className="max-w-[1500px] mx-auto">
         {/* <!-- footer menu start --> */}
         <div className="flex flex-wrap xl:flex-nowrap gap-10 xl:gap-19 xl:justify-between">
@@ -270,7 +270,7 @@ const Footer = () => {
         </div>
 
         {/* <!-- footer bottom start --> */}
-        <div className="flex flex-wrap items-center justify-center gap-[80px] mt-[40px]">
+        <div className="flex flex-wrap items-center justify-center gap-x-[80px] gap-y-[30px] mt-[40px]">
           <p className="font-normal">
             Copyright © <span className="text-orange">AOA Traders Inc. </span>
             All Rights Reserved. Powered by
