@@ -9,6 +9,7 @@ import Image from "next/image";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { updateproductDetails } from "@/redux/features/product-details";
 import { CircleCheck, Heart, Maximize, Minus, Plus, X } from "lucide-react";
+import extractAllVariantImages from "@/helpers/extractAllVariantImages";
 
 const QuickViewModal = () => {
   const { isModalOpen, closeModal } = useModalContext();
@@ -20,7 +21,14 @@ const QuickViewModal = () => {
   // get the product data
   const product = useAppSelector((state) => state.quickViewReducer.value);
 
+  const { images } = product;
+
   const [activePreview, setActivePreview] = useState(0);
+  const [activePreviewPath, setActivePreviewPath] = useState<string | null>(
+    null
+  );
+
+  const allVariantImages = extractAllVariantImages(images);
 
   // preview modal
   const handlePreviewSlider = () => {
@@ -30,16 +38,16 @@ const QuickViewModal = () => {
   };
 
   // add to cart
-  const handleAddToCart = () => {
-    dispatch(
-      addItemToCart({
-        ...product,
-        quantity,
-      })
-    );
+  // const handleAddToCart = () => {
+  //   dispatch(
+  //     addItemToCart({
+  //       ...product,
+  //       quantity,
+  //     })
+  //   );
 
-    closeModal();
-  };
+  //   closeModal();
+  // };
 
   useEffect(() => {
     // closing modal while clicking outside
@@ -48,6 +56,13 @@ const QuickViewModal = () => {
         closeModal();
       }
     }
+    if (allVariantImages.length > 0) {
+      setActivePreviewPath(
+        allVariantImages[0]?.startsWith("http")
+          ? allVariantImages[0]
+          : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${allVariantImages[0]}`
+      );
+    }
 
     if (isModalOpen) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -55,8 +70,7 @@ const QuickViewModal = () => {
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-
-      setQuantity(1);
+      setActivePreview(0);
     };
   }, [isModalOpen, closeModal]);
 
@@ -64,32 +78,48 @@ const QuickViewModal = () => {
     <div
       className={`${
         isModalOpen ? "z-99999" : "hidden"
-      } fixed top-0 left-0 overflow-y-auto no-scrollbar w-full h-screen sm:py-20 xl:py-25 2xl:py-[230px] bg-app_text    sm:px-8 px-4 py-5`}
+      } fixed top-0 left-0 overflow-y-auto no-scrollbar w-full h-screen sm:py-20 xl:py-25 2xl:py-[230px] bg-app_text bg-opacity-70   sm:px-8 px-4 py-5`}
     >
       <div className="flex items-center justify-center ">
         <div className="w-full max-w-[1100px] rounded-xl shadow-3 bg-white p-7.5 relative modal-content">
           <button
-            onClick={() => closeModal()}
+            onClick={() => {
+              closeModal();
+              setActivePreview(0);
+              setActivePreviewPath(null);
+            }}
             aria-label="button for close modal"
             className="absolute top-0 right-0 sm:top-6 sm:right-6 flex items-center justify-center w-10 h-10 rounded-full ease-in duration-150 bg-app_border text-app_text hover:text-orange"
           >
-            <X width={20} height={20}/>
+            <X width={20} height={20} />
           </button>
 
-          <div className="flex flex-wrap items-center gap-12.5">
-            <div className="max-w-[526px] w-full">
+          <div className="flex flex-wrap items-center sm:items-start gap-12.5">
+            <div className="sm:max-w-[526px] w-full">
               <div className="flex gap-5">
-                <div className="flex flex-col gap-5">
-                  {product.imgs.thumbnails?.map((img, key) => (
+                {/* <div className="max-h-[400px] overflow-y-auto overflow-x-hidden no-scrollbar"> */}
+                <div className="flex flex-col gap-5 !min-w-max">
+                  {extractAllVariantImages(images)?.map((img, key) => (
                     <button
-                      onClick={() => setActivePreview(key)}
+                      onClick={() => {
+                        setActivePreview(key);
+                        setActivePreviewPath(
+                          img?.startsWith("http")
+                            ? img
+                            : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${img}`
+                        );
+                      }}
                       key={key}
                       className={`flex items-center justify-center w-20 h-20 overflow-hidden rounded-lg bg-gray-1 ease-out duration-200 hover:border-2 hover:border-app_blue ${
                         activePreview === key && "border-2 border-app_blue"
                       }`}
                     >
                       <Image
-                        src={img || ""}
+                        src={
+                          img?.startsWith("http")
+                            ? img
+                            : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${img}`
+                        }
                         alt="thumbnail"
                         width={61}
                         height={61}
@@ -98,6 +128,7 @@ const QuickViewModal = () => {
                     </button>
                   ))}
                 </div>
+                {/* </div> */}
 
                 <div className="relative z-1 overflow-hidden flex items-center justify-center w-full sm:min-h-[508px] bg-gray-1 rounded-lg border border-gray-3">
                   <div>
@@ -106,11 +137,11 @@ const QuickViewModal = () => {
                       aria-label="button for zoom"
                       className="gallery__Image w-10 h-10 rounded-[5px] bg-white shadow-1 flex items-center justify-center ease-out duration-200 text-app_text hover:text-app_blue absolute top-4 lg:top-8 right-4 lg:right-8 z-50"
                     >
-                      <Maximize width={22} height={22}/>
+                      <Maximize width={22} height={22} />
                     </button>
 
                     <Image
-                      src={product?.imgs?.previews?.[activePreview]}
+                      src={activePreviewPath}
                       alt="products-details"
                       width={400}
                       height={400}
@@ -120,13 +151,13 @@ const QuickViewModal = () => {
               </div>
             </div>
 
-            <div className="max-w-[445px] w-full">
+            <div className="sm:max-w-[445px] w-full">
               <span className="inline-block text-custom-xs font-medium text-white py-1 px-3 bg-orange mb-6.5">
                 SALE 20% OFF
               </span>
 
               <h3 className="font-semibold text-xl xl:text-heading-5 text-app_text mb-4">
-                {product.title}
+                {product.product_name}
               </h3>
 
               <div className="flex flex-wrap items-center gap-5 mb-6">
@@ -248,15 +279,34 @@ const QuickViewModal = () => {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <CircleCheck width={19} widths={19} className="text-green" />
-
-                  <span className="font-medium text-app_text"> In Stock </span>
+                  {product.stock_qty > 0 ? (
+                    <>
+                      <CircleCheck
+                        width={19}
+                        widths={19}
+                        className="text-green"
+                      />
+                      <span className="font-medium text-app_text">
+                        In Stock
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <CircleCheck
+                        width={19}
+                        widths={19}
+                        className="text-red"
+                      />
+                      <span className="font-medium text-app_text">
+                        Out of Stock
+                      </span>
+                    </>
+                  )}
                 </div>
               </div>
 
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has.
+              <p className="overflow-hidden text-ellipsis line-clamp-3">
+                {product.description}
               </p>
 
               <div className="flex flex-wrap justify-between gap-5 mt-6 mb-7.5">
@@ -267,11 +317,11 @@ const QuickViewModal = () => {
 
                   <span className="flex items-center gap-2">
                     <span className="font-semibold text-app_text text-xl xl:text-heading-4">
-                      ${product.discountedPrice}
-                    </span>
-                    <span className="font-medium text-app_text text-lg xl:text-2xl line-through">
                       ${product.price}
                     </span>
+                    {/* <span className="font-medium text-app_text text-lg xl:text-2xl line-through">
+                      ${product.price}
+                    </span> */}
                   </span>
                 </div>
 
@@ -311,7 +361,7 @@ const QuickViewModal = () => {
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   disabled={quantity === 0 && true}
-                  onClick={() => handleAddToCart()}
+                  // onClick={() => handleAddToCart()}
                   className={`inline-flex font-medium text-white bg-app_blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-app_blue
                   `}
                 >

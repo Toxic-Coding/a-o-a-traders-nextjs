@@ -13,31 +13,31 @@ import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 const SingleItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
   const dispatch = useDispatch<AppDispatch>();
-
+  const { images } = item;
   // update the QuickView state
   const handleQuickViewUpdate = () => {
     dispatch(updateQuickView({ ...item }));
   };
 
   // add to cart
-  const handleAddToCart = () => {
-    dispatch(
-      addItemToCart({
-        ...item,
-        quantity: 1,
-      })
-    );
-  };
+  // const handleAddToCart = () => {
+  //   dispatch(
+  //     addItemToCart({
+  //       ...item,
+  //       quantity: 1,
+  //     })
+  //   );
+  // };
 
-  const handleItemToWishList = () => {
-    dispatch(
-      addItemToWishlist({
-        ...item,
-        status: "available",
-        quantity: 1,
-      })
-    );
-  };
+  // const handleItemToWishList = () => {
+  //   dispatch(
+  //     addItemToWishlist({
+  //       ...item,
+  //       status: "available",
+  //       quantity: 1,
+  //     })
+  //   );
+  // };
 
   return (
     <div className="group">
@@ -77,21 +77,32 @@ const SingleItem = ({ item }: { item: Product }) => {
               />
             </div>
 
-            <p className="text-custom-sm">({item.reviews})</p>
+            {/* <p className="text-custom-sm">({item.reviews})</p> */}
           </div>
 
           <h3 className="font-medium text-app_text ease-out duration-200 hover:text-orange mb-1.5">
-            <Link href="/shop-details"> {item.title} </Link>
+            <Link href="/shop-details"> {item.product_name} </Link>
           </h3>
 
           <span className="flex items-center justify-center gap-2 font-medium text-lg">
-            <span className="text-app_text">${item.discountedPrice}</span>
-            <span className="text-app_text line-through">${item.price}</span>
+            <span className="text-app_text">${item.price}</span>
+            {/* <span className="text-app_text line-through">${item.price}</span> */}
           </span>
         </div>
 
         <div className="flex justify-center items-center">
-          <Image src={item.imgs.previews[0]} alt="" width={280} height={280} />
+          <Image
+            src={
+              images && images.length
+                ? !images[0].main_image.startsWith("https")
+                  ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${images[0].main_image}`
+                  : images[0].main_image
+                : "/logo.avif"
+            }
+            alt=""
+            width={280}
+            height={280}
+          />
         </div>
 
         <div className="absolute right-0 bottom-0 translate-x-full u-w-full flex flex-col gap-2 p-5.5 ease-linear duration-300 group-hover:translate-x-0">
@@ -128,7 +139,7 @@ const SingleItem = ({ item }: { item: Product }) => {
           </button>
 
           <button
-            onClick={() => handleAddToCart()}
+            // onClick={() => handleAddToCart()}
             aria-label="button for add to cart"
             id="addCartOne"
             className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-app_text bg-white hover:text-white hover:bg-orange"
@@ -164,7 +175,7 @@ const SingleItem = ({ item }: { item: Product }) => {
 
           <button
             onClick={() => {
-              handleItemToWishList();
+              // handleItemToWishList();
             }}
             aria-label="button for add to fav"
             id="addFavOne"

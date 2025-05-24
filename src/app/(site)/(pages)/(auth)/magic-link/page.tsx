@@ -2,7 +2,7 @@ import { endpoints } from "@/helpers/endpoints";
 
 async function verifyMagicLink(token: string) {
   const response = await fetch(
-    `${process.env.BASE_URL}${endpoints.auth.megicLinkLoginVerify}token=${token}`,
+    `${process.env.BASE_URL}${endpoints.auth.megicLinkLoginVerify}?token=${token}`,
     {
       method: "POST",
       headers: {
@@ -10,6 +10,7 @@ async function verifyMagicLink(token: string) {
       },
     }
   );
+
 
   if (!response.ok) {
     throw new Error("Failed to verify magic link");

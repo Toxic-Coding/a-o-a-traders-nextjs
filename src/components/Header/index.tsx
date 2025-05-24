@@ -12,7 +12,7 @@ import Image from "next/image";
 import Topbar from "./Topbar";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   Bell,
   Heart,
@@ -23,6 +23,10 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/app/context/authProvider";
 import Spinner from "../Common/spinner";
+import { useMergedSearchParams } from "@/hooks/useQuery";
+import { debounce } from "@/helpers/dbounce";
+import NProgress from "nprogress";
+
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -34,33 +38,54 @@ const Header = () => {
   const totalPrice = useSelector(selectTotalPrice);
   const { isLoading, user } = useAuth();
   const pathname = usePathname();
+  const params = useSearchParams();
+  const { replace } = useRouter();
+  const buildQuery = useMergedSearchParams();
   const isCurrentRoute = (path: string): boolean => {
     return pathname === path;
   };
+
+  const handleSearch = (value: string) => {
+    const searchQuery = buildQuery(
+      { query: value },
+      value.trim() !== "" ? "/all-products" : undefined
+    );
+    replace(searchQuery);
+    NProgress.start();
+  };
+
+  const debounceSearch = debounce((val) => {
+    handleSearch(val);
+  }, 500);
 
   const handleOpenCartModal = () => {
     openCartModal();
   };
 
-  // Sticky menu
-  const handleStickyMenu = () => {
-    if (!inView && window.scrollY > 0) {
-      setStickyMenu(true);
-      controls.start({
-        top: 0,
-        position: "sticky",
-        zIndex: 10,
-        transition: { duration: 0.3, ease: "linear" },
-      });
-    } else {
-      setStickyMenu(false);
-      controls.start({ top: 0, position: "relative" });
-    }
-  };
-
   useEffect(() => {
+    setSearchQuery(params.get("query"));
+  }, [params]);
+
+  // Sticky menu
+  useEffect(() => {
+    const handleStickyMenu = () => {
+      if (!inView && window.scrollY > 0) {
+        setStickyMenu(true);
+        controls.start({
+          top: 0,
+          position: "sticky",
+          zIndex: 10,
+          transition: { duration: 0.3, ease: "linear" },
+        });
+      } else {
+        setStickyMenu(false);
+        controls.start({ top: 0, position: "relative" });
+      }
+    };
+
     window.addEventListener("scroll", handleStickyMenu);
-  }, []);
+    return () => window.removeEventListener("scroll", handleStickyMenu);
+  }, [controls]);
 
   const options = [
     { label: "All Categories", value: "0" },
@@ -76,7 +101,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={` left-0 top-0 w-full z-50 bg-white transition-all ease-in-out duration-300 px-[10px] sm:px-[20px] ${
+        className={` left-0 top-0 w-full z-50 bg-white transition-all ease-in-out duration-300 px-[20px] ${
           stickyMenu && "shadow"
         }`}
       >
@@ -140,8 +165,12 @@ const Header = () => {
                     {/* <!-- divider --> */}
                     {/* <span className="absolute left-0 top-1/2 -translate-y-1/2 inline-block w-px h-5.5 bg-gray-4"></span> */}
                     <input
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      value={searchQuery}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setSearchQuery(value);
+                        debounceSearch(value);
+                      }}
+                      value={searchQuery || ""}
                       type="search"
                       name="search"
                       id="search"
@@ -168,22 +197,6 @@ const Header = () => {
                 {isLoading ? (
                   <div className="flex items-center">
                     <Spinner size="medium" color="orange" />
-            </div>
-
-            {/* <!-- header top right --> */}
-            <div className="flex w-full lg:w-auto items-center gap-7.5">
-              <div className="flex items-center gap-4">
-                <Link href="/signin" className="flex items-center gap-3">
-                  <UserRound width={24} height={24} className="text-app_blue" />
-
-                  <div>
-                    <span className="block text-2xs text-app_text uppercase">
-                      account
-                    </span>
-                    <p className="font-medium text-custom-sm text-app_text">
-                      Sign In
-                    </p>
-
                   </div>
                 ) : (
                   <Link
@@ -217,7 +230,7 @@ const Header = () => {
                   </Link>
                 )}
 
-                <button className="flex items-center gap-3">
+                <button className="hidden xl:flex items-center gap-3">
                   <span className="inline-block relative">
                     <Heart width={24} height={24} className="text-app_blue" />
 
@@ -230,7 +243,7 @@ const Header = () => {
                     <span className="block text-2xs text-app_text uppercase">
                       Favorite
                     </span>
-                    <p className="font-medium text-custom-sm text-app_text whitespace-nowrap">
+                    <p className="font-medium text-custom-sm text-app_text">
                       My Wishlist
                     </p>
                   </div>
@@ -307,7 +320,7 @@ const Header = () => {
         ref={ref}
         initial={{ top: 0, position: "relative" }}
         animate={controls}
-        className="border-t border-gray-3 bg-app_blue text-white px-[20px]"
+        className="border-t border-gray-3 bg-app_blue text-white"
       >
         <div className="max-w-[1500px] mx-auto sm:px-7.5 xl:px-0 px-[20px]">
           <div className="flex items-center justify-between">
@@ -361,7 +374,7 @@ const Header = () => {
             {/* // <!--=== Main Nav End ===--> */}
 
             {/* // <!--=== Nav Right Start ===--> */}
-            <ul className="flex items-center gap-5.5 hidden xl:block">
+            <ul className="flex items-center gap-5.5 xl:block">
               <li className="flex items-center gap-1.5 font-medium text-custom-sm py-4">
                 <Bell width={16} height={16} />
                 Hotline: 760-590-4250

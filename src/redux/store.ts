@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import quickViewReducer from "./features/quickView-slice";
+import productsListStyleReducer from "./features/productsListStyle";
 import cartReducer from "./features/cart-slice";
 import wishlistReducer from "./features/wishlist-slice";
 import productDetailsReducer from "./features/product-details";
@@ -13,6 +14,7 @@ export const store = configureStore({
     cartReducer,
     wishlistReducer,
     productDetailsReducer,
+    productsListStyleReducer,
   },
 });
 

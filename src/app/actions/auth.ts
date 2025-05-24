@@ -80,7 +80,7 @@ export async function emailLogin(formData: loginData) {
       user_role: user_role,
       access_token,
       refresh_token,
-      // expiresAt: Date.now() + expiresIn * 1000,
+      expiresAt: Date.now() + 55 * 60 * 1000, // Token expires in 55 minutes,
     };
 
     await session.save();
