@@ -1,11 +1,12 @@
 // lib/api.ts
 
-import { getSession } from "@/lib/session";
+import { clearSession, getSession } from "@/lib/session";
 import { redirect } from "next/navigation";
+import { endpoints } from "./endpoints";
 
 export async function refreshAccessToken(refreshToken: string) {
   try {
-    const response = await fetch(`${process.env.API_URL}/auth/refresh`, {
+    const response = await fetch(`${process.env.API_URL}${endpoints.auth.refresh}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ refreshToken }),
@@ -20,35 +21,42 @@ export async function refreshAccessToken(refreshToken: string) {
 }
 
 export async function authenticatedFetch(
-  url: string,
+  path: string,
   options: RequestInit = {}
 ) {
   const session = await getSession();
 
   if (!session.user) {
-    redirect("/login");
+    redirect("/signin");
   }
 
   // Check token expiration
   // if (session.user.expiresAt <= Date.now()) {
-  //   const newTokens = await refreshAccessToken(session.user.refreshToken);
+  //   const newTokens = await refreshAccessToken(session.user.refresh_token);
 
   //   if (!newTokens) {
   //     await clearSession();
-  //     redirect("/login");
+  //     redirect("/signin");
   //   }
 
-  //   session.user.accessToken = newTokens.accessToken;
-  //   session.user.refreshToken = newTokens.refreshToken;
-  //   session.user.expiresAt = Date.now() + newTokens.expiresIn * 1000;
+  //   session.user.access_token = newTokens.accessToken;
+  //   session.user.refresh_token = newTokens.refreshToken;
+  //   session.user.expiresAt = Date.now() + 55 * 60 * 1000;
   //   await session.save();
   // }
 
   const headers = new Headers(options.headers);
   headers.set("Authorization", `Bearer ${session.user.access_token}`);
 
-  return fetch(url, {
+  return fetch(`${process.env.BASE_URL}${path}`, {
     ...options,
     headers,
   });
+}
+
+export async function Fetch(
+  path: string,
+  options: RequestInit = {}
+) {
+  return fetch(`${process.env.BASE_URL}${path}`, options);
 }

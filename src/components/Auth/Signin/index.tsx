@@ -35,9 +35,11 @@ const Signin = () => {
       (res: { data: { user_role: string } }) => {
         authRefresh();
         if (res.data.user_role === "admin") {
-          push("/admin");
+          window.location.href = "/admin";
+        } else if (res.data.user_role === "supplier") {
+          window.location.href = "/supplier";
         } else {
-          push("/");
+          window.location.href = "/";
         }
       },
       "Authorization success"

@@ -6,7 +6,7 @@ export async function AuthGuard({ children }: { children: React.ReactNode }) {
   const session = await getSession()
 
   if (!session.user) {
-    redirect('/login')
+    redirect('/signin')
   }
 
   return <>{children}</>

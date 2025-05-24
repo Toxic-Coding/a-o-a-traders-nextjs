@@ -3,6 +3,7 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Spinner from "@/components/Common/spinner";
 
 type User = {
   user_id: number;
@@ -52,8 +53,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(true);
     await fetch("/api/auth/logout", { method: "POST" });
     setUser(null);
+    window.location.href = "/signin";
     setIsLoading(false);
-    router.push("/signin");
   };
 
   const refresh = async () => {

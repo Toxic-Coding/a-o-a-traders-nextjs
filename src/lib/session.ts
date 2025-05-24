@@ -14,7 +14,8 @@ declare module "iron-session" {
       user_id: number;
       access_token: string;
       refresh_token: string;
-      user_role: string;
+      user_role: "supplier" | "admin" | "user" | "buyer";
+      expiresAt: number;
     };
   }
 }

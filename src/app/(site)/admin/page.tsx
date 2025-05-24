@@ -1,12 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-const AdminHomePage = () => {
-    return (
-        <div style={{ padding: '20px' }}>
-            <h1>Admin Dashboard</h1>
-            <p>Welcome to the admin panel. Use the navigation to manage the application.</p>
-        </div>
-    );
-};
+const page = () => {
+  return (
+    <div>Admin</div>
+  )
+}
 
-export default AdminHomePage;
+export default page

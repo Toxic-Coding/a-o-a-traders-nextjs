@@ -1,140 +1,51 @@
 import { Product } from "@/types/product";
 const shopData: Product[] = [
   {
-    title: "Havit HV-G69 USB Gamepad",
-    reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 1,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-1-sm-1.png",
-        "/images/products/product-1-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-1-bg-1.png",
-        "/images/products/product-1-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "iPhone 14 Plus , 6/128GB",
-    reviews: 5,
-    price: 899.0,
-    discountedPrice: 99.0,
-    id: 2,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-2-sm-1.png",
-        "/images/products/product-2-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-2-bg-1.png",
-        "/images/products/product-2-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Apple iMac M1 24-inch 2021",
-    reviews: 5,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 3,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-3-sm-1.png",
-        "/images/products/product-3-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-3-bg-1.png",
-        "/images/products/product-3-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "MacBook Air M1 chip, 8/256GB",
-    reviews: 6,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 4,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-4-sm-1.png",
-        "/images/products/product-4-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-4-bg-1.png",
-        "/images/products/product-4-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Apple Watch Ultra",
-    reviews: 3,
-    price: 99.0,
-    discountedPrice: 29.0,
-    id: 5,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-5-sm-1.png",
-        "/images/products/product-5-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-5-bg-1.png",
-        "/images/products/product-5-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Logitech MX Master 3 Mouse",
-    reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 6,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-6-sm-1.png",
-        "/images/products/product-6-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-6-bg-1.png",
-        "/images/products/product-6-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Apple iPad Air 5th Gen - 64GB",
-    reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 7,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-7-sm-1.png",
-        "/images/products/product-7-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-7-bg-1.png",
-        "/images/products/product-7-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Asus RT Dual Band Router",
-    reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
-    id: 8,
-    imgs: {
-      thumbnails: [
-        "/images/products/product-8-sm-1.png",
-        "/images/products/product-8-sm-2.png",
-      ],
-      previews: [
-        "/images/products/product-8-bg-1.png",
-        "/images/products/product-8-bg-2.png",
-      ],
-    },
+    supplier_id: 11,
+    product_id: "9574484",
+    product_name:
+      "Optional Fixed Height T-Arms for Alera Essentia and Interval Series Chairs, Black, 2/Set",
+    description:
+      "Enhance the comfort of your desk chair with fixed height T-arms, designed specifically for Alera® Interval and Essentia Series Chairs. The stationary arms stay in place for consistent support. Adding arms to a desk chair helps improve posture and reduces strain on neck and shoulders. Constructed with soft PU armcaps for maximum comfort. Simple to use design attaches with ease. Series Name: Alera® Essentia Series, Interval Series; Color(s): Black; Color Family: Black; Material(s): Padded Metal; Polyurethane.",
+    price: 76,
+    brand: "Alera®",
+    category: "CHAIR, ACCESSORIES",
+    stock_qty: 208,
+    item_weight: 6.55,
+    keywords:
+      "Alera; Fixed T-Arms; Alera Interval Series; Optional Arms; Optional T-Arms; T-Arms; Chairs; Furniture; Seating; Accessories; Hardware",
+    is_active: true,
+    images: [
+      {
+        product_id: "9574484",
+        main_image: "813706.JPG",
+        image_variant1:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_100/813706.JPG",
+        image_variant2:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_240/813706.JPG",
+        image_variant3:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_400/813706.JPG",
+        image_variant4:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_750/813706.JPG",
+        image_variant5:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_1500/813706.JPG",
+        alt_image:
+          "813707.JPG, 813708.JPG, 813709.JPG, 813710.JPG, 813711.JPG, 813712.JPG",
+        alt_image_variant1:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_100/813707.JPG",
+        alt_image_variant2:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_240/813707.JPG",
+        alt_image_variant3:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_400/813707.JPG",
+        brand_logo_image: "ALERA_LOGO.JPG",
+        brand_logo_image_url:
+          "https://content.oppictures.com/Master_Images/Master_Variants/Variant_140/ALERA_LOGO.JPG",
+        msds_image: "nan",
+        msds_image_url: null,
+      },
+    ],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   },
 ];
 

@@ -18,6 +18,8 @@ import PreLoader from "@/components/Common/PreLoader";
 import { Poppins } from "next/font/google";
 import { Toaster } from "sonner";
 import { AuthProvider } from "../context/authProvider";
+import { UIProvider } from "../context/UiProvider";
+import { LoadingProvider } from "../context/LoadingProvider";
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin", "latin-ext"],
@@ -27,40 +29,33 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={poppins.className}>
-        <NextTopLoader showSpinner={false} color="#FF7E00" />
-        {loading ? (
-          <PreLoader />
-        ) : (
-          <>
-            <AuthProvider>
-              <Toaster invert position="top-right" richColors />
-              <ReduxProvider>
-                <CartModalProvider>
-                  <ModalProvider>
-                    <PreviewSliderProvider>
-                      <Header />
-                      {children}
-                      <QuickViewModal />
-                      <CartSidebarModal />
-                      <PreviewSliderModal />
-                    </PreviewSliderProvider>
-                  </ModalProvider>
-                </CartModalProvider>
-              </ReduxProvider>
-              <ScrollToTop />
-              <Footer />
-            </AuthProvider>
-          </>
-        )}
+        <NextTopLoader
+          showSpinner={false}
+          color="#FF7E00"
+          height={4}
+          showForHashAnchor
+        />
+
+        <LoadingProvider>
+          <AuthProvider>
+            <Toaster invert position="top-right" richColors />
+            <ReduxProvider>
+              <CartModalProvider>
+                <ModalProvider>
+                  <PreviewSliderProvider>
+                    <UIProvider>{children}</UIProvider>
+                    <QuickViewModal />
+                    <CartSidebarModal />
+                    <PreviewSliderModal />
+                  </PreviewSliderProvider>
+                </ModalProvider>
+              </CartModalProvider>
+            </ReduxProvider>
+          </AuthProvider>
+        </LoadingProvider>
       </body>
     </html>
   );
