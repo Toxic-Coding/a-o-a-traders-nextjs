@@ -9,4 +9,7 @@ export const tags = {
   all_products: {
     all_products: "all_products",
   },
+  supplier: {
+    list_products: "list_products",
+  },
 };

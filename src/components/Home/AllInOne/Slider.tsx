@@ -73,7 +73,7 @@ const AllInOneProducts = ({ products }: { products: ProductList }) => {
       <Swiper
         ref={sliderRef}
         spaceBetween={100}
-        className="justify-between"
+        className="sm:justify-between justify-center"
         breakpoints={{
           0: {
             slidesPerView: 1,

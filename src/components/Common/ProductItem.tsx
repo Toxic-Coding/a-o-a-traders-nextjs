@@ -47,7 +47,7 @@ const ProductItem = ({ item }: { item: Product }) => {
   };
 
   return (
-    <Link href={`/${product_id}`}>
+    <Link href={`/detail/${product_id}`}>
       <div className="w-[300px] group bg-white shrink-0 pl-[10px] pb-[15px]">
         <div className="relative overflow-hidden flex items-center justify-center rounded-[5px] min-h-[270px] ">
           <Image

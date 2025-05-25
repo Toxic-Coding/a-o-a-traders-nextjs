@@ -42,7 +42,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
   // };
 
   return (
-    <Link href={`/${product_id}`}>
+    <Link href={`/detail/${product_id}`}>
       <div className="group rounded-lg bg-white shadow-1">
         <div className="flex">
           <div className="shadow-list relative overflow-hidden flex items-center justify-center max-w-[270px] w-full sm:min-h-[270px] p-4">
