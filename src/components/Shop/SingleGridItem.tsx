@@ -42,7 +42,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
   // };
 
   return (
-    <Link href={`/${product_id}`}>
+    <Link href={`/detail/${product_id}`}>
       <div className="group">
         <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-white shadow-1 min-h-[270px] mb-4">
           <Image

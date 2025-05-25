@@ -6,35 +6,21 @@ import Link from "next/link";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useToast } from "@/app/hooks/useToast";
-import axiosInstance from "@/helpers/axiosInstance";
 import { endpoints } from "@/helpers/endpoints";
-import axios from "axios";
 import Button from "@/components/Common/button";
-import { useResponseHandler } from "@/app/hooks/useResponseHandler";
 import { signUpAction } from "@/app/actions/auth";
-
-interface SignupFormData {
-  username: string;
-  email: string;
-  password: string;
-  confirm_password: string;
-}
+import useResponseHandler from "@/app/hooks/useResponseHandler";
 
 const Signup = () => {
   const methods = useForm({
     resolver: yupResolver(signupSchema),
     mode: "onChange",
   });
-  const { loading, handleResponse } = useResponseHandler();
-  const handleSubmit = async (data: SignupFormData) => {
-    await handleResponse(
-      signUpAction,
-      { data },
-      (data) => {},
-      "Your account has been created"
-    );
-  };
+
+  const { isLoading, submit, data } = useResponseHandler({
+    serverAction: signUpAction,
+    customMessage: "Your account has been created",
+  });
 
   return (
     <>
@@ -118,7 +104,7 @@ const Signup = () => {
 
             <div className="mt-5.5">
               <FormProvider {...methods}>
-                <form onSubmit={methods.handleSubmit(handleSubmit)}>
+                <form onSubmit={methods.handleSubmit(submit)}>
                   <div className="mb-5">
                     <FormInput
                       type="text"
@@ -156,7 +142,8 @@ const Signup = () => {
                   </div>
                   <Button
                     type="submit"
-                    isLoading={loading}
+                    isLoading={isLoading}
+                    disabled={isLoading}
                     className="w-full bg-app_orange hover:bg-app_blue"
                   >
                     Create Account

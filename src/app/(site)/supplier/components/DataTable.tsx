@@ -137,14 +137,14 @@ export function DataTable({
   );
 
   const table = useReactTable({
-    data: data.items,
+    data: data.items, // Only current page's items from API
     columns,
     state: {
       sorting,
       columnVisibility,
       rowSelection,
       columnFilters,
-      pagination,
+      // REMOVE pagination here
     },
     getRowId: (row) => row.product_id.toString(),
     enableRowSelection: true,
@@ -152,13 +152,13 @@ export function DataTable({
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
-    onPaginationChange: setPagination,
+    // REMOVE onPaginationChange
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
+    // REMOVE getPaginationRowModel
   });
 
   return (

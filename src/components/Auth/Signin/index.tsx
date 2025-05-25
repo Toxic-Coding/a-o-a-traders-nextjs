@@ -1,7 +1,6 @@
 "use client";
 import { emailLogin } from "@/app/actions/auth";
 import { useAuth } from "@/app/context/authProvider";
-import { useResponseHandler } from "@/app/hooks/useResponseHandler";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Button from "@/components/Common/button";
 import FormInput from "@/components/Common/input/form-input";
@@ -13,6 +12,7 @@ import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import MagicLink from "../megic-link";
 import { endpoints } from "@/helpers/endpoints";
+import useResponseHandler from "@/app/hooks/useResponseHandler";
 
 interface loginFormData {
   email: string;
@@ -27,24 +27,22 @@ const Signin = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const { loading, handleResponse } = useResponseHandler();
-  const handleSubmit = async (data: loginFormData) => {
-    await handleResponse(
-      emailLogin,
-      { data },
-      (res: { data: { user_role: string } }) => {
-        authRefresh();
-        if (res.data.user_role === "admin") {
-          window.location.href = "/admin";
-        } else if (res.data.user_role === "supplier") {
-          window.location.href = "/supplier";
-        } else {
-          window.location.href = "/";
-        }
-      },
-      "Authorization success"
-    );
-  };
+  const { isLoading, submit, data } = useResponseHandler({
+    serverAction: emailLogin,
+    successCallBack: (res: { user_role: string; success: boolean }) => {
+      console.log(data);
+
+      authRefresh();
+      if (res.user_role === "admin") {
+        replace("/admin");
+      } else if (res.user_role === "supplier") {
+        replace("/supplier");
+      } else {
+        replace("/");
+      }
+    },
+    customMessage: "Authorization success",
+  });
 
   return (
     <>
@@ -61,7 +59,7 @@ const Signin = () => {
 
             <div>
               <FormProvider {...methods}>
-                <form onSubmit={methods.handleSubmit(handleSubmit)}>
+                <form onSubmit={methods.handleSubmit(submit)}>
                   <div className="mb-5">
                     <FormInput
                       name="email"
@@ -84,7 +82,8 @@ const Signin = () => {
                   <Button
                     type="submit"
                     className="w-full bg-app_text hover:bg-app_blue"
-                    isLoading={loading}
+                    disabled={isLoading}
+                    isLoading={isLoading}
                   >
                     Sign in to account
                   </Button>

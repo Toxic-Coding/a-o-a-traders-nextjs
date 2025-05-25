@@ -5,22 +5,22 @@ import { getSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 
 interface signupData {
-  data: {
-    username: string;
-    email: string;
-    password: string;
-    confirm_password: string;
-  };
+  username: string;
+  email: string;
+  password: string;
+  confirm_password: string;
 }
 
 export const signUpAction = async (userData: signupData) => {
+  console.log(userData);
+
   try {
     const response = await fetch(
       `${process.env.BASE_URL}${endpoints.auth.register}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData.data),
+        body: JSON.stringify(userData),
       }
     );
 
@@ -32,22 +32,23 @@ export const signUpAction = async (userData: signupData) => {
       throw new Error(errorDetail || "An unknown error occurred");
     }
     return {
-      success: true,
-      data: responseData,
-      message: "User created successfully",
+      type: "success",
+      message: "Account created successfully",
+      result: responseData,
     };
   } catch (error) {
     console.error("Error signing up:", error);
-    throw error;
+    return {
+      type: "error",
+      message: error.message || "Something went wrong during login.",
+    };
   }
 };
 
 // Email/Password Login
 interface loginData {
-  data: {
-    email: string;
-    password: string;
-  };
+  email: string;
+  password: string;
 }
 export async function emailLogin(formData: loginData) {
   const session = await getSession();
@@ -57,7 +58,7 @@ export async function emailLogin(formData: loginData) {
       `${process.env.BASE_URL}${endpoints.auth.login}`,
       {
         method: "POST",
-        body: JSON.stringify(formData.data),
+        body: JSON.stringify(formData),
         headers: {
           "Content-Type": "application/json",
         },
@@ -85,26 +86,28 @@ export async function emailLogin(formData: loginData) {
 
     await session.save();
     return {
-      success: true,
+      type: "success",
       message: "Logged in successfully",
-      data: responseData,
+      result: responseData,
     };
   } catch (error) {
     console.error("Error signing in:", error);
-    throw error;
+    return {
+      type: "error",
+      message: error.message || "Something went wrong during login.",
+    };
   }
 }
 
 // magicLinkLogin Login
 interface magicLinkLogin {
-  data: {
-    email: string;
-  };
+  email: string;
 }
 export async function sendMagicLink(formData: magicLinkLogin) {
+  
   try {
     const response = await fetch(
-      `${process.env.BASE_URL}${endpoints.auth.megicLinkLogin}?email=${formData.data.email}`,
+      `${process.env.BASE_URL}${endpoints.auth.megicLinkLogin}?email=${formData.email}`,
       {
         method: "POST",
         headers: {
@@ -122,12 +125,16 @@ export async function sendMagicLink(formData: magicLinkLogin) {
       throw new Error(errorDetail || "An unknown error occurred");
     }
     return {
-      success: true,
+      type: "success",
       message: "Magic link sent successfully",
+      result: responseData,
     };
   } catch (error) {
     console.error("Error sending magic link:", error);
-    throw error;
+    return {
+      type: "error",
+      message: error.message || "Something went wrong.",
+    };
   }
 }
 

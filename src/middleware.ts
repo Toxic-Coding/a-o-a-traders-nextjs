@@ -38,7 +38,6 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   if (session.user && session.user.expiresAt <= Date.now()) {
-    
     const refreshToken = await refreshAccessToken(session?.user.refresh_token);
     if (refreshToken) {
       session.user.expiresAt = Date.now() + 55 * 60 * 1000; // Token expires in 55 minutes
@@ -65,73 +64,46 @@ export async function middleware(request: NextRequest) {
     "/google",
   ];
 
-  const protectedPaths = [
-    "/dashboard",
-    // "/admin",
-    "/profile",
-    "/settings",
-    "/orders",
-  ];
-
   const adminPath = ["/admin"];
 
   const supplierPaths = ["/supplier"];
 
+  const protectedPaths = [...adminPath, ...supplierPaths];
+
+  const redirect = (to: string) =>
+    NextResponse.redirect(new URL(to, request.nextUrl));
+
   // Redirect authenticated users away from public paths
-  if (authPaths.includes(path) && session.user) {
-    return NextResponse.redirect(new URL("/", request.nextUrl));
+
+  if (protectedPaths.some((p) => path.startsWith(p)) && !session.user) {
+    return redirect("/signin");
+  } else if (authPaths.some((p) => path.startsWith(p)) && session.user) {
+    return redirect("/");
   } else if (
-    adminPath.includes(path) &&
+    adminPath.some((p) => path.startsWith(p)) &&
     session.user &&
     session.user.user_role !== "admin"
   ) {
-    return NextResponse.redirect(new URL("/", request.nextUrl));
+    return redirect("/");
   } else if (
-    supplierPaths.includes(path) &&
+    supplierPaths.some((p) => path.startsWith(p)) &&
     session.user &&
     session.user.user_role !== "supplier"
   ) {
-    return NextResponse.redirect(new URL("/", request.nextUrl));
+    return redirect("/");
   } else if (
-    !supplierPaths.includes(path) &&
+    !supplierPaths.some((p) => path.startsWith(p)) &&
     session.user &&
     session.user.user_role === "supplier"
   ) {
-    return NextResponse.redirect(new URL("/supplier", request.nextUrl));
+    return redirect("/supplier");
   } else if (
-    !adminPath.includes(path) &&
+    !adminPath.some((p) => path.startsWith(p)) &&
     session.user &&
     session.user.user_role === "admin"
   ) {
-    return NextResponse.redirect(new URL("/admin", request.nextUrl));
+    return redirect("/admin");
   }
-
-  // ✅ Restrict based on role
-  const userRole = token?.role;
-
-  //   if (userRole && roleRestrictedPaths[userRole]) {
-  //     const restrictedPaths = roleRestrictedPaths[userRole];
-  //     const isRestricted = restrictedPaths.some((restrictedPath) =>
-  //       path.startsWith(restrictedPath)
-  //     );
-
-  //     if (isRestricted) {
-  //       return NextResponse.redirect(new URL("/unauthorized", request.nextUrl)); // create this page or redirect to home
-  //     }
-  //   }
-
-  // Check for RefreshAccessTokenError and clear cookies if present
-  // if (token?.error === "RefreshAccessTokenError") {
-  //   const response = NextResponse.redirect(
-  //     new URL("/auth/signin", request.nextUrl),
-  //   );
-  //   response.cookies.set("next-auth.session-token", "", {
-  //     maxAge: 0,
-  //     path: "/",
-  //   });
-  //   response.cookies.set("next-auth.csrf-token", "", { maxAge: 0, path: "/" });
-  //   return response;
-  // }
 
   return NextResponse.next();
 }

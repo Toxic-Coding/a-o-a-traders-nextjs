@@ -174,7 +174,6 @@ export default async function Page({
   }
 
   const data = await res.json();
-console.log(data);
 
   return (
     <div className="flex flex-1 flex-col">
