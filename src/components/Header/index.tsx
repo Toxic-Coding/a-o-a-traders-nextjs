@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import CustomSelect from "./CustomSelect";
 import { menuData } from "./menuData";
@@ -34,7 +34,7 @@ const Header = () => {
   const { openCartModal } = useCartModalContext();
   const { ref, inView } = useInView({ threshold: 1 });
   const controls = useAnimation();
-  const product = useAppSelector((state) => state.cartReducer.items);
+  const product = useAppSelector((state) => state.cart.items);
   const totalPrice = useSelector(selectTotalPrice);
   const { isLoading, user } = useAuth();
   const pathname = usePathname();
@@ -44,6 +44,8 @@ const Header = () => {
   const isCurrentRoute = (path: string): boolean => {
     return pathname === path;
   };
+
+  const searchTyping = useRef(false);
 
   const handleSearch = (value: string) => {
     const searchQuery = buildQuery(
@@ -63,7 +65,9 @@ const Header = () => {
   };
 
   useEffect(() => {
-    setSearchQuery(params.get("query"));
+    if (!searchTyping.current) {
+      setSearchQuery(params.get("query"));
+    }
   }, [params]);
 
   // Sticky menu
@@ -158,7 +162,12 @@ const Header = () => {
                 <Image src="/logo.avif" alt="Logo" width={120} height={40} />
               </Link>
               <div className=" w-full md:block hidden">
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSearch(searchQuery);
+                  }}
+                >
                   {/* <CustomSelect options={options} /> */}
 
                   <div className="relative  w-full">
@@ -166,6 +175,7 @@ const Header = () => {
                     {/* <span className="absolute left-0 top-1/2 -translate-y-1/2 inline-block w-px h-5.5 bg-gray-4"></span> */}
                     <input
                       onChange={(e) => {
+                        searchTyping.current = true;
                         const value = e.target.value;
                         setSearchQuery(value);
                         debounceSearch(value);
@@ -229,25 +239,26 @@ const Header = () => {
                     </div>
                   </Link>
                 )}
+                <Link href={"/wishlist"}>
+                  <button className="hidden xl:flex items-center gap-3">
+                    <span className="inline-block relative">
+                      <Heart width={24} height={24} className="text-app_blue" />
 
-                <button className="hidden xl:flex items-center gap-3">
-                  <span className="inline-block relative">
-                    <Heart width={24} height={24} className="text-app_blue" />
-
-                    <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2.5 bg-orange w-4.5 h-4.5 rounded-full text-white">
-                      {product.length}
+                      <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2.5 bg-orange w-4.5 h-4.5 rounded-full text-white">
+                        {product.length}
+                      </span>
                     </span>
-                  </span>
 
-                  <div>
-                    <span className="block text-2xs text-app_text uppercase">
-                      Favorite
-                    </span>
-                    <p className="font-medium text-custom-sm text-app_text">
-                      My Wishlist
-                    </p>
-                  </div>
-                </button>
+                    <div>
+                      <span className="block text-2xs text-app_text uppercase">
+                        Favorite
+                      </span>
+                      <p className="font-medium text-custom-sm text-app_text">
+                        My Wishlist
+                      </p>
+                    </div>
+                  </button>
+                </Link>
 
                 <button
                   onClick={handleOpenCartModal}

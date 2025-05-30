@@ -55,9 +55,11 @@ export const ProductListSkeletons = ({
   color?: SkeletonColor;
 }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-7.5 gap-y-9">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-7.5 gap-y-9 max-w-[1500px] mx-auto">
       {Array.from({ length: length || 4 }, (_, index) => (
-        <ProductItemSkeleton key={index} color={color} />
+        <div className="flex items-center justify-center" key={index}>
+          <ProductItemSkeleton color={color} />
+        </div>
       ))}
     </div>
   );

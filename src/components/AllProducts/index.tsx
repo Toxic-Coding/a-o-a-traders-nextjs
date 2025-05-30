@@ -9,7 +9,7 @@ import Empty from "../empty";
 
 const AllProducts = ({ products }: { products: ProductList }) => {
   const { productStyle } = useAppSelector(
-    (state) => state.productsListStyleReducer
+    (state) => state.productsListStyle
   );
 
   return (

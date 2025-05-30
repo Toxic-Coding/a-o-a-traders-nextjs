@@ -6,6 +6,7 @@ import React from "react";
 
 // /D:/projects/e-commerce-templates/nextjs-ecommerce-template/src/app/admin/layout.tsx
 
+
 export default function AdminLayout({
   children,
 }: {

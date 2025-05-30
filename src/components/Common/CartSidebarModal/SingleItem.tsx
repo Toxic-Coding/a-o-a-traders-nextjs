@@ -2,12 +2,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Image from "next/image";
+import Link from "next/link";
 
 const SingleItem = ({ item, removeItemFromCart }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleRemoveFromCart = () => {
-    dispatch(removeItemFromCart(item.id));
+    dispatch(removeItemFromCart(item.product_id));
   };
 
   return (
@@ -15,7 +16,7 @@ const SingleItem = ({ item, removeItemFromCart }) => {
       <div className="w-full flex items-center gap-6">
         <div className="flex items-center justify-center rounded-[10px] bg-gray-3 max-w-[90px] w-full h-22.5">
           <Image
-            src={item.imgs?.thumbnails[0]}
+            src={item.image}
             alt="product"
             width={100}
             height={100}
@@ -24,9 +25,9 @@ const SingleItem = ({ item, removeItemFromCart }) => {
 
         <div>
           <h3 className="font-medium text-app_text mb-1 ease-out duration-200 hover:text-orange">
-            <a href="#"> {item.title} </a>
+            <Link href={`/detail/${item.product_id}`}> {item.product_name} </Link>
           </h3>
-          <p className="text-custom-sm">Price: ${item.discountedPrice}</p>
+          <p className="text-custom-sm">Price: ${item.price}</p>
         </div>
       </div>
 

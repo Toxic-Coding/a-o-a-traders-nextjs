@@ -20,6 +20,7 @@ const Home = () => {
       <Hero />
       <PromoBanner />
       {/* <SpecialSale /> */}
+
       <Suspense fallback={<ProductListSkeletons />}>
         <AllInOne />
       </Suspense>

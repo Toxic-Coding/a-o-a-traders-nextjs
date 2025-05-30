@@ -33,9 +33,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const checkSession = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch("/api/auth/session");
       if (!response.ok) throw new Error();
-
       const session = await response.json();
       setUser(session.user);
     } catch (error) {
@@ -65,7 +65,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthContext.Provider value={{ user, isLoading, logout, refresh }}>
-      {children}
+      {isLoading ? (
+        <Spinner
+          size="medium"
+          color="app_blue"
+          className="fixed top-1/2 left-1/2"
+        />
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 }
