@@ -24,6 +24,6 @@ export const UIProvider = ({ children }: { children: React.ReactNode }) => {
       <Footer />
     </>
   ) : (
-    <>{children}</>
+    user && <>{children}</>
   );
 };

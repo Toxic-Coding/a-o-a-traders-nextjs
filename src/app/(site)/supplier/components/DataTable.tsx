@@ -74,6 +74,7 @@ import { ProductList } from "@/types/product";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMergedSearchParams } from "@/hooks/useQuery";
 import NProgress from "nprogress";
+import Link from "next/link";
 
 export function DataTable({
   data,
@@ -201,10 +202,12 @@ export function DataTable({
                 })}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button size="sm">
-            <PlusIcon />
-            <span className="hidden lg:inline">Upload Products</span>
-          </Button>
+          <Link href="/supplier/upload-products">
+            <Button size="sm">
+              <PlusIcon />
+              <span className="hidden lg:inline">Upload Products</span>
+            </Button>
+          </Link>
         </div>
       </div>
       <TabsContent

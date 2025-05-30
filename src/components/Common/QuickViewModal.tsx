@@ -10,6 +10,8 @@ import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { updateproductDetails } from "@/redux/features/product-details";
 import { CircleCheck, Heart, Maximize, Minus, Plus, X } from "lucide-react";
 import extractAllVariantImages from "@/helpers/extractAllVariantImages";
+import AddToCartButton from "./add-to-cart";
+import AddToWishlist from "./add-to-wishlist";
 
 const QuickViewModal = () => {
   const { isModalOpen, closeModal } = useModalContext();
@@ -19,7 +21,7 @@ const QuickViewModal = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   // get the product data
-  const product = useAppSelector((state) => state.quickViewReducer.value);
+  const product = useAppSelector((state) => state.quickView.value);
 
   const { images } = product;
 
@@ -359,21 +361,8 @@ const QuickViewModal = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-4">
-                <button
-                  disabled={quantity === 0 && true}
-                  // onClick={() => handleAddToCart()}
-                  className={`inline-flex font-medium text-white bg-app_blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-app_blue
-                  `}
-                >
-                  Add to Cart
-                </button>
-
-                <button
-                  className={`inline-flex items-center gap-2 font-medium text-white bg-app_text py-3 px-6 rounded-md ease-out duration-200 hover:bg-opacity-95 `}
-                >
-                  <Heart width={24} height={24} />
-                  Add to Wishlist
-                </button>
+                <AddToCartButton product={product} />
+                <AddToWishlist product={product} className="bg-app_orange text-white mt-[15px] hover:bg-white" />
               </div>
             </div>
           </div>

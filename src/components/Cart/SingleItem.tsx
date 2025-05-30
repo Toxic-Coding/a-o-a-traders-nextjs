@@ -7,6 +7,7 @@ import {
 } from "@/redux/features/cart-slice";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const SingleItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -19,13 +20,23 @@ const SingleItem = ({ item }) => {
 
   const handleIncreaseQuantity = () => {
     setQuantity(quantity + 1);
-    dispatch(updateCartItemQuantity({ id: item.id, quantity: quantity + 1 }));
+    dispatch(
+      updateCartItemQuantity({
+        product_id: item.product_id,
+        quantity: quantity + 1,
+      })
+    );
   };
 
   const handleDecreaseQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      dispatch(updateCartItemQuantity({ id: item.id, quantity: quantity - 1 }));
+      dispatch(
+        updateCartItemQuantity({
+          product_id: item.product_id,
+          quantity: quantity - 1,
+        })
+      );
     } else {
       return;
     }
@@ -37,12 +48,15 @@ const SingleItem = ({ item }) => {
         <div className="flex items-center justify-between gap-5">
           <div className="w-full flex items-center gap-5.5">
             <div className="flex items-center justify-center rounded-[5px] bg-gray-2 max-w-[80px] w-full h-17.5">
-              <Image width={200} height={200} src={item.imgs?.thumbnails[0]} alt="product" />
+              <Image width={200} height={200} src={item.image} alt="product" />
             </div>
 
             <div>
               <h3 className="text-app_text ease-out duration-200 hover:text-app_blue">
-                <a href="#"> {item.title} </a>
+                <Link href={`/detail/${item.product_id}`}>
+                  {" "}
+                  {item.product_name}{" "}
+                </Link>
               </h3>
             </div>
           </div>
@@ -50,7 +64,7 @@ const SingleItem = ({ item }) => {
       </div>
 
       <div className="min-w-[180px]">
-        <p className="text-app_text">${item.discountedPrice}</p>
+        <p className="text-app_text">${item.price}</p>
       </div>
 
       <div className="min-w-[275px]">
@@ -106,7 +120,7 @@ const SingleItem = ({ item }) => {
       </div>
 
       <div className="min-w-[200px]">
-        <p className="text-app_text">${item.discountedPrice * quantity}</p>
+        <p className="text-app_text">${item.price * quantity}</p>
       </div>
 
       <div className="min-w-[50px] flex justify-end">

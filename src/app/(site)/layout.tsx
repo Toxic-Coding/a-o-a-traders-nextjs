@@ -42,6 +42,7 @@ export default function RootLayout({
         <LoadingProvider>
           <AuthProvider>
             <Toaster invert position="top-right" richColors />
+
             <ReduxProvider>
               <CartModalProvider>
                 <ModalProvider>

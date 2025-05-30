@@ -20,9 +20,7 @@ const AllProductsWrapper = ({ children }) => {
   const [stickyMenu, setStickyMenu] = useState(false);
   const dispatch = useDispatch();
 
-  const { productStyle } = useAppSelector(
-    (state) => state.productsListStyleReducer
-  );
+  const { productStyle } = useAppSelector((state) => state.productsListStyle);
 
   const handleStickyMenu = () => {
     if (window.scrollY >= 80) {

@@ -5,16 +5,13 @@ type InitialState = {
 };
 
 type WishListItem = {
-  id: number;
-  title: string;
+  supplier_id: number;
+  product_id: string;
+  product_name: string;
   price: number;
-  discountedPrice: number;
+  image: string | null;
   quantity: number;
-  status?: string;
-  imgs?: {
-    thumbnails: string[];
-    previews: string[];
-  };
+  stock_qty: number;
 };
 
 const initialState: InitialState = {
@@ -26,27 +23,36 @@ export const wishlist = createSlice({
   initialState,
   reducers: {
     addItemToWishlist: (state, action: PayloadAction<WishListItem>) => {
-      const { id, title, price, quantity, imgs, discountedPrice, status } =
-        action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+      const {
+        supplier_id,
+        product_id,
+        product_name,
+        quantity,
+        price,
+        image,
+        stock_qty,
+      } = action.payload;
+      const existingItem = state.items.find(
+        (item) => item.product_id === product_id
+      );
 
       if (existingItem) {
         existingItem.quantity += quantity;
       } else {
         state.items.push({
-          id,
-          title,
+          product_id,
+          product_name,
           price,
           quantity,
-          imgs,
-          discountedPrice,
-          status,
+          image,
+          supplier_id,
+          stock_qty,
         });
       }
     },
-    removeItemFromWishlist: (state, action: PayloadAction<number>) => {
+    removeItemFromWishlist: (state, action: PayloadAction<string>) => {
       const itemId = action.payload;
-      state.items = state.items.filter((item) => item.id !== itemId);
+      state.items = state.items.filter((item) => item.product_id !== itemId);
     },
 
     removeAllItemsFromWishlist: (state) => {

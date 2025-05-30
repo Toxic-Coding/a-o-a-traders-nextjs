@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const OrderSummary = () => {
-  const cartItems = useAppSelector((state) => state.cartReducer.items);
+  const cartItems = useAppSelector((state) => state.cart.items);
   const totalPrice = useSelector(selectTotalPrice);
 
   return (
@@ -30,11 +30,11 @@ const OrderSummary = () => {
           {cartItems.map((item, key) => (
             <div key={key} className="flex items-center justify-between py-5 border-b border-gray-3">
               <div>
-                <p className="text-app_text">{item.title}</p>
+                <p className="text-app_text">{item.product_name}</p>
               </div>
               <div>
                 <p className="text-app_text text-right">
-                  ${item.discountedPrice * item.quantity}
+                  ${item.price * item.quantity}
                 </p>
               </div>
             </div>

@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import { ArrowLeftRight, Eye, Heart } from "lucide-react";
+import AddToCartButton from "./add-to-cart";
+import AddToWishlist from "./add-to-wishlist";
 
 const ProductItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -21,26 +23,6 @@ const ProductItem = ({ item }: { item: Product }) => {
   const handleQuickViewUpdate = () => {
     dispatch(updateQuickView({ ...item }));
   };
-
-  // add to cart
-  // const handleAddToCart = () => {
-  //   dispatch(
-  //     addItemToCart({
-  //       ...item,
-  //       quantity: 1,
-  //     })
-  //   );
-  // };
-
-  // const handleItemToWishList = () => {
-  //   dispatch(
-  //     addItemToWishlist({
-  //       ...item,
-  //       status: "available",
-  //       quantity: 1,
-  //     })
-  //   );
-  // };
 
   const handleProductDetails = () => {
     dispatch(updateproductDetails({ ...item }));
@@ -64,14 +46,7 @@ const ProductItem = ({ item }: { item: Product }) => {
           />
 
           <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
-            <button
-              // onClick={() => handleItemToWishList()}
-              aria-label="button for favorite select"
-              id="favOne"
-              className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-orange"
-            >
-              <Heart width={17} height={17} />
-            </button>
+            <AddToWishlist product={item} />
             <button
               // onClick={() => handleItemToWishList()}
               aria-label="button for favorite select"
@@ -82,7 +57,9 @@ const ProductItem = ({ item }: { item: Product }) => {
             </button>
 
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 openModal();
                 handleQuickViewUpdate();
               }}
@@ -144,12 +121,7 @@ const ProductItem = ({ item }: { item: Product }) => {
           {/* <span className="text-app_text2 line-through">${item.price}</span> */}
         </span>
 
-        <button
-          // onClick={() => handleAddToCart()}
-          className="font-medium text-head-4 py-[7px] px-[18px] rounded-[5px] bg-app_blue text-white ease-out duration-200 mt-[15px]"
-        >
-          Add to cart
-        </button>
+        <AddToCartButton product={item} />
       </div>
     </Link>
   );
