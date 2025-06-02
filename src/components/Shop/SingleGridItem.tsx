@@ -10,6 +10,8 @@ import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import Image from "next/image";
 import { Eye, Heart } from "lucide-react";
+import AddToCartButton from "../Common/add-to-cart";
+import AddToWishlist from "../Common/add-to-wishlist";
 
 const SingleGridItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -58,7 +60,9 @@ const SingleGridItem = ({ item }: { item: Product }) => {
 
           <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 openModal();
                 handleQuickViewUpdate();
               }}
@@ -73,25 +77,8 @@ const SingleGridItem = ({ item }: { item: Product }) => {
               />
             </button>
 
-            <button
-              // onClick={() => handleAddToCart()}
-              className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-app_blue text-white ease-out duration-200 hover:bg-app_blue"
-            >
-              Add to cart
-            </button>
-
-            <button
-              // onClick={() => handleItemToWishList()}
-              aria-label="button for favorite select"
-              id="favOne"
-              className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-app_text bg-white hover:text-app_blue"
-            >
-              <Heart
-                width={18}
-                height={18}
-                className="text-app_text hover:text-orange"
-              />
-            </button>
+            <AddToCartButton product={item} />
+            <AddToWishlist product={item} />
           </div>
         </div>
 

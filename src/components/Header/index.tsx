@@ -34,7 +34,8 @@ const Header = () => {
   const { openCartModal } = useCartModalContext();
   const { ref, inView } = useInView({ threshold: 1 });
   const controls = useAnimation();
-  const product = useAppSelector((state) => state.cart.items);
+  const product = useAppSelector((state) => state.wishlist.items);
+  const cartProducts = useAppSelector((state) => state.cart.items);
   const totalPrice = useSelector(selectTotalPrice);
   const { isLoading, user } = useAuth();
   const pathname = usePathname();
@@ -272,7 +273,7 @@ const Header = () => {
                     />
 
                     <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2.5 bg-orange w-4.5 h-4.5 rounded-full text-white">
-                      {product.length}
+                      {cartProducts.length}
                     </span>
                   </span>
 

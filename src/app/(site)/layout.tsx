@@ -42,12 +42,11 @@ export default function RootLayout({
         <LoadingProvider>
           <AuthProvider>
             <Toaster invert position="top-right" richColors />
-
             <ReduxProvider>
               <CartModalProvider>
                 <ModalProvider>
                   <PreviewSliderProvider>
-                    <UIProvider>{children}</UIProvider>
+                    {children}
                     <QuickViewModal />
                     <CartSidebarModal />
                     <PreviewSliderModal />
