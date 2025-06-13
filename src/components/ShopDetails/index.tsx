@@ -9,6 +9,7 @@ import { useAppSelector } from "@/redux/store";
 import { Product } from "@/types/product";
 import extractAllVariantImages from "@/helpers/extractAllVariantImages";
 import AddToWishlist from "../Common/add-to-wishlist";
+import { getImageUrl } from "@/helpers/getImageUrl";
 
 const ShopDetails = ({ product }: { product: Product }) => {
   const [activeColor, setActiveColor] = useState("blue");
@@ -103,7 +104,7 @@ const ShopDetails = ({ product }: { product: Product }) => {
     openPreviewModal();
   };
 
-  console.log(product);
+  console.log("allVariantImages",allVariantImages);
 
   return (
     <>
@@ -140,13 +141,22 @@ const ShopDetails = ({ product }: { product: Product }) => {
                   <Image
                     src={
                       previewImg
-                        ? previewImg?.startsWith("http")
-                          ? previewImg
-                          : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${previewImg}`
-                        : !images[0].main_image.startsWith("https")
-                        ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${images[0].main_image}`
-                        : images[0].main_image || "/logo.avif"
+                        ? previewImg
+                        : getImageUrl({
+                            imagePath: images[0].main_image,
+                            supplierId: product.supplier_id,
+                            variant: "240", // or "200", "300" as needed
+                          })
                     }
+                    // src={
+                    //   previewImg
+                    //     ? previewImg?.startsWith("http")
+                    //       ? previewImg
+                    //       : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${previewImg}`
+                    //     : !images[0].main_image.startsWith("https")
+                    //     ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${images[0].main_image}`
+                    //     : images[0].main_image || "/logo.avif"
+                    // }
                     alt="products-details"
                     width={400}
                     height={400}
@@ -159,7 +169,15 @@ const ShopDetails = ({ product }: { product: Product }) => {
                 {allVariantImages.length
                   ? allVariantImages?.map((img, key) => (
                       <button
-                        onClick={() => setPreviewImg(img)}
+                        onClick={() =>
+                          setPreviewImg(
+                            getImageUrl({
+                              imagePath: img,
+                              supplierId: product.supplier_id,
+                              variant: "240", // or "200", "300" as needed
+                            })
+                          )
+                        }
                         key={key}
                         className={`flex items-center justify-center w-15 sm:w-25 h-15 sm:h-25 overflow-hidden rounded-lg bg-gray-2 shadow-1 ease-out duration-200 border-2 hover:border-app_blue ${
                           img === previewImg
@@ -170,11 +188,16 @@ const ShopDetails = ({ product }: { product: Product }) => {
                         <Image
                           width={50}
                           height={50}
-                          src={
-                            img?.startsWith("http")
-                              ? img
-                              : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${img}`
-                          }
+                          src={getImageUrl({
+                            imagePath: img,
+                            supplierId: product.supplier_id,
+                            variant: "240", // or "200", "300" as needed
+                          })}
+                          // src={
+                          //   img?.startsWith("http")
+                          //     ? img
+                          //     : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${img}`
+                          // }
                           alt="thumbnail"
                         />
                       </button>

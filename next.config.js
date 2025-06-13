@@ -4,8 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "content.oppictures.com",
-        pathname: "/**",
+        hostname: "*",
       },
     ],
   },
