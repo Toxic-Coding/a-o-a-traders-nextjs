@@ -12,6 +12,7 @@ import { CircleCheck, Heart, Maximize, Minus, Plus, X } from "lucide-react";
 import extractAllVariantImages from "@/helpers/extractAllVariantImages";
 import AddToCartButton from "./add-to-cart";
 import AddToWishlist from "./add-to-wishlist";
+import { getImageUrl } from "@/helpers/getImageUrl";
 
 const QuickViewModal = () => {
   const { isModalOpen, closeModal } = useModalContext();
@@ -60,9 +61,14 @@ const QuickViewModal = () => {
     }
     if (allVariantImages.length > 0) {
       setActivePreviewPath(
-        allVariantImages[0]?.startsWith("http")
-          ? allVariantImages[0]
-          : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${allVariantImages[0]}`
+        // allVariantImages[0]?.startsWith("http")
+        //   ? allVariantImages[0]
+        //   : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${allVariantImages[0]}`
+        getImageUrl({
+          imagePath: allVariantImages[0],
+          supplierId: product.supplier_id,
+          variant: "240",
+        })
       );
     }
 
@@ -106,9 +112,11 @@ const QuickViewModal = () => {
                       onClick={() => {
                         setActivePreview(key);
                         setActivePreviewPath(
-                          img?.startsWith("http")
-                            ? img
-                            : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${img}`
+                          getImageUrl({
+                            imagePath: img,
+                            supplierId: product.supplier_id,
+                            variant: "240",
+                          })
                         );
                       }}
                       key={key}
@@ -117,11 +125,16 @@ const QuickViewModal = () => {
                       }`}
                     >
                       <Image
-                        src={
-                          img?.startsWith("http")
-                            ? img
-                            : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${img}`
-                        }
+                        // src={
+                        //   img?.startsWith("http")
+                        //     ? img
+                        //     : `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${img}`
+                        // }
+                        src={getImageUrl({
+                          imagePath: img,
+                          supplierId: product.supplier_id,
+                          variant: "240",
+                        })}
                         alt="thumbnail"
                         width={61}
                         height={61}
@@ -143,7 +156,7 @@ const QuickViewModal = () => {
                     </button>
 
                     <Image
-                      src={activePreviewPath}
+                      src={activePreviewPath || "/logo.avif"}
                       alt="products-details"
                       width={400}
                       height={400}
@@ -362,7 +375,10 @@ const QuickViewModal = () => {
 
               <div className="flex flex-wrap items-center gap-4">
                 <AddToCartButton product={product} />
-                <AddToWishlist product={product} className="bg-app_orange text-white mt-[15px] hover:bg-white" />
+                <AddToWishlist
+                  product={product}
+                  className="bg-app_orange text-white mt-[15px] hover:bg-white"
+                />
               </div>
             </div>
           </div>

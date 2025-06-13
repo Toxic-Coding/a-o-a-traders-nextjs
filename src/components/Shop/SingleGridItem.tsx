@@ -12,6 +12,7 @@ import Image from "next/image";
 import { Eye, Heart } from "lucide-react";
 import AddToCartButton from "../Common/add-to-cart";
 import AddToWishlist from "../Common/add-to-wishlist";
+import { getImageUrl } from "@/helpers/getImageUrl";
 
 const SingleGridItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -48,11 +49,16 @@ const SingleGridItem = ({ item }: { item: Product }) => {
       <div className="group">
         <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-white shadow-1 min-h-[270px] mb-4">
           <Image
-            src={
-              !images[0].main_image.startsWith("https")
-                ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${images[0].main_image}`
-                : images[0].main_image || "/logo.avif"
-            }
+            // src={
+            //   !images[0].main_image.startsWith("https")
+            //     ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${images[0].main_image}`
+            //     : images[0].main_image || "/logo.avif"
+            // }
+            src={getImageUrl({
+              imagePath: images?.[0]?.main_image,
+              supplierId: item.supplier_id,
+              variant: "240",
+            })}
             alt=""
             width={250}
             height={250}

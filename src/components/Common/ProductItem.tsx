@@ -13,6 +13,7 @@ import Link from "next/link";
 import { ArrowLeftRight, Eye, Heart } from "lucide-react";
 import AddToCartButton from "./add-to-cart";
 import AddToWishlist from "./add-to-wishlist";
+import { getImageUrl } from "@/helpers/getImageUrl";
 
 const ProductItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -33,14 +34,12 @@ const ProductItem = ({ item }: { item: Product }) => {
       <div className="w-[300px] group bg-white shrink-0 pl-[10px] pb-[15px]">
         <div className="relative overflow-hidden flex items-center justify-center rounded-[5px] min-h-[270px] ">
           <Image
-            src={
-              images && images.length
-                ? !images[0].main_image.startsWith("https")
-                  ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_240/${images[0].main_image}`
-                  : images[0].main_image
-                : "/logo.avif"
-            }
-            alt=""
+            src={getImageUrl({
+              imagePath: item.images?.[0]?.main_image,
+              supplierId: item.supplier_id,
+              variant: "240",
+            })}
+            alt="product"
             width={250}
             height={250}
           />

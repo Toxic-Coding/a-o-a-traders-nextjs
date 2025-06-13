@@ -55,7 +55,11 @@ export const columns: ColumnDef<ProductList["items"][number]>[] = [
   {
     accessorKey: "product_name",
     header: "Name",
-    cell: ({ row }) => <span className="font-semibold">{row.original.product_name || "N/A"}</span>,
+    cell: ({ row }) => (
+      <span className="font-semibold">
+        {row.original.product_name || "N/A"}
+      </span>
+    ),
     enableHiding: false,
   },
   {
@@ -64,7 +68,7 @@ export const columns: ColumnDef<ProductList["items"][number]>[] = [
     cell: ({ row }) => (
       <div className="w-32">
         <span className="px-1.5 text-app_blue">
-          {`$${row.original.price}` || "N/A"}
+          {`${row.original.price ? `$${row.original.price}` : "N/A"}`}
         </span>
       </div>
     ),

@@ -23,12 +23,9 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/app/context/authProvider";
 import Spinner from "../Common/spinner";
-import { useMergedSearchParams } from "@/hooks/useQuery";
-import { debounce } from "@/helpers/dbounce";
-import NProgress from "nprogress";
+import SearchBar from "./Search";
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("");
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
   const { openCartModal } = useCartModalContext();
@@ -39,37 +36,13 @@ const Header = () => {
   const totalPrice = useSelector(selectTotalPrice);
   const { isLoading, user } = useAuth();
   const pathname = usePathname();
-  const params = useSearchParams();
-  const { replace } = useRouter();
-  const buildQuery = useMergedSearchParams();
   const isCurrentRoute = (path: string): boolean => {
     return pathname === path;
   };
 
-  const searchTyping = useRef(false);
-
-  const handleSearch = (value: string) => {
-    const searchQuery = buildQuery(
-      { query: value },
-      value.trim() !== "" ? "/all-products" : undefined
-    );
-    replace(searchQuery);
-    NProgress.start();
-  };
-
-  const debounceSearch = debounce((val) => {
-    handleSearch(val);
-  }, 500);
-
   const handleOpenCartModal = () => {
     openCartModal();
   };
-
-  useEffect(() => {
-    if (!searchTyping.current) {
-      setSearchQuery(params.get("query"));
-    }
-  }, [params]);
 
   // Sticky menu
   useEffect(() => {
@@ -163,46 +136,9 @@ const Header = () => {
                 <Image src="/logo.avif" alt="Logo" width={120} height={40} />
               </Link>
               <div className=" w-full md:block hidden">
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    handleSearch(searchQuery);
-                  }}
-                >
-                  {/* <CustomSelect options={options} /> */}
+                {/* <CustomSelect options={options} /> */}
 
-                  <div className="relative  w-full">
-                    {/* <!-- divider --> */}
-                    {/* <span className="absolute left-0 top-1/2 -translate-y-1/2 inline-block w-px h-5.5 bg-gray-4"></span> */}
-                    <input
-                      onChange={(e) => {
-                        searchTyping.current = true;
-                        const value = e.target.value;
-                        setSearchQuery(value);
-                        debounceSearch(value);
-                      }}
-                      value={searchQuery || ""}
-                      type="search"
-                      name="search"
-                      id="search"
-                      placeholder="I am shopping for..."
-                      autoComplete="off"
-                      className="custom-search w-full rounded-full bg-gray-1 border border-gray-3 py-2.5 pl-4 pr-10 outline-none ease-in duration-200"
-                    />
-
-                    <button
-                      id="search-btn"
-                      aria-label="Search"
-                      className="flex items-center justify-center absolute right-3 top-1/2 -translate-y-1/2 ease-in duration-200"
-                    >
-                      <Search
-                        width={20}
-                        height={20}
-                        className="text-app_text hover:text-app_blue"
-                      />
-                    </button>
-                  </div>
-                </form>
+                <SearchBar />
               </div>
               <div className="flex items-center gap-5">
                 {isLoading ? (
@@ -292,36 +228,7 @@ const Header = () => {
             {/* <!-- header top right --> */}
             {/* <!-- Hamburger Toggle BTN --> */}
             <div className=" w-full md:hidden">
-              <form>
-                {/* <CustomSelect options={options} /> */}
-
-                <div className="relative  w-full">
-                  {/* <!-- divider --> */}
-                  {/* <span className="absolute left-0 top-1/2 -translate-y-1/2 inline-block w-px h-5.5 bg-gray-4"></span> */}
-                  <input
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    value={searchQuery}
-                    type="search"
-                    name="search"
-                    id="search"
-                    placeholder="I am shopping for..."
-                    autoComplete="off"
-                    className="custom-search w-full rounded-full bg-gray-1 border border-gray-3 py-2.5 pl-4 pr-10 outline-none ease-in duration-200"
-                  />
-
-                  <button
-                    id="search-btn"
-                    aria-label="Search"
-                    className="flex items-center justify-center absolute right-3 top-1/2 -translate-y-1/2 ease-in duration-200"
-                  >
-                    <Search
-                      width={20}
-                      height={20}
-                      className="text-app_text hover:text-app_blue"
-                    />
-                  </button>
-                </div>
-              </form>
+              <SearchBar />
             </div>
             {/* //   <!-- Hamburger Toggle BTN --> */}
           </div>

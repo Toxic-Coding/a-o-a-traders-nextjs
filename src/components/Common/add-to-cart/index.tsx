@@ -1,4 +1,5 @@
 "use client";
+import { getImageUrl } from "@/helpers/getImageUrl";
 import { addItemToCart, removeItemFromCart } from "@/redux/features/cart-slice";
 import { AppDispatch } from "@/redux/store";
 import { Product } from "@/types/product";
@@ -14,11 +15,16 @@ const AddToCartButton = ({ product }: { product: Product }) => {
     dispatch(
       addItemToCart({
         ...product,
-        image: images.length
-          ? !images[0].main_image.startsWith("https")
-            ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_100/${images[0].main_image}`
-            : images[0].main_image
-          : "/logo.avif",
+        // image: images.length
+        //   ? !images[0].main_image.startsWith("https")
+        //     ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_100/${images[0].main_image}`
+        //     : images[0].main_image
+        //   : "/logo.avif",
+        image: getImageUrl({
+          imagePath: product.images?.[0]?.main_image,
+          supplierId: product.supplier_id,
+          variant: "100",
+        }),
         quantity: 1,
       })
     );

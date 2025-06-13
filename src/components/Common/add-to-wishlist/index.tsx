@@ -1,4 +1,5 @@
 "use client";
+import { getImageUrl } from "@/helpers/getImageUrl";
 import { cn } from "@/lib/utils";
 import {
   addItemToWishlist,
@@ -20,12 +21,17 @@ const AddToWishlist = ({
 }) => {
   const { images, product_id, product_name, price } = product;
   const dispatch = useDispatch<AppDispatch>();
-  // add to cart
-  const image = images.length
-    ? !images[0].main_image.startsWith("https")
-      ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_100/${images[0].main_image}`
-      : images[0].main_image
-    : "/logo.avif";
+  // const image = images.length
+  //   ? !images[0].main_image.startsWith("https")
+  //     ? `${process.env.NEXT_PUBLIC_SUPPLIER_IMAGE_BASE_URL}_100/${images[0].main_image}`
+  //     : images[0].main_image
+  //   : "/logo.avif";
+
+  const image = getImageUrl({
+    imagePath: images?.[0]?.main_image,
+    supplierId: product.supplier_id,
+    variant: "100",
+  });
 
   const handleItemToWishList = () => {
     dispatch(
