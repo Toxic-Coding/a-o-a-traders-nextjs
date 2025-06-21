@@ -12,6 +12,7 @@ declare module "iron-session" {
   interface IronSessionData {
     user?: {
       user_id: number;
+      email?: string;
       access_token: string;
       refresh_token: string;
       user_role: "supplier" | "admin" | "user" | "buyer";

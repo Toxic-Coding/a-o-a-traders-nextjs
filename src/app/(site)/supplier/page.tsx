@@ -14,11 +14,11 @@ import {
   SettingsIcon,
   UsersIcon,
 } from "lucide-react";
-import { authenticatedFetch } from "@/helpers/requestHandler";
-import { tags } from "@/helpers/tags";
-import { objectToQueryString } from "@/hooks/paramsToQueryString";
-import { endpoints } from "@/helpers/endpoints";
-import { DataTable } from "./components/DataTable";
+import Widgets from "./components/Widgets";
+import { Suspense } from "react";
+import SupplierProducts from "./components/SupplierProducts";
+import TableSkeleton from "./components/TableSkeleton";
+import WidgetsSkeleton from "./components/WidgetsLoading";
 
 export default async function Page({
   searchParams,
@@ -146,40 +146,16 @@ export default async function Page({
     ],
   };
 
-  const { query, page, per_page } = await searchParams;
-  const pageNumber = page ? parseInt(page) : 1;
-  const queryParams = objectToQueryString({
-    search: query,
-    page: pageNumber,
-    per_page: per_page || 10,
-  });
-
-  const res = await authenticatedFetch(
-    `${endpoints.supplier.dashboardProducts}${queryParams}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      next: {
-        revalidate: 600,
-        tags: [tags.all_products.all_products],
-      },
-    }
-  );
-
-  if (!res.ok) {
-    const data = await res.text();
-    console.error("Error fetching products:", data);
-  }
-
-  const data = await res.json();
-
   return (
     <div className="flex flex-1 flex-col">
       <div className="@container/main flex flex-1 flex-col gap-2">
         <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-          <DataTable data={data} />
+          <Suspense fallback={<WidgetsSkeleton />}>
+            <Widgets />
+          </Suspense>
+          <Suspense fallback={<TableSkeleton />}>
+            <SupplierProducts searchParams={searchParams} />
+          </Suspense>
         </div>
       </div>
     </div>

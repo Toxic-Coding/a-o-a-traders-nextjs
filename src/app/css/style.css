@@ -44,6 +44,18 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --color-product-start: 217 91% 60%;
+    --color-product-end: 217 91% 35%;
+
+    --color-success-start: 142 76% 36%;
+    --color-success-end: 158 64% 40%;
+
+    --color-error-start: 0 84% 60%;
+    --color-error-end: 340 82% 67%;
+
+    --color-role-start: 262 83% 58%;
+    --color-role-end: 295 78% 60%;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -78,6 +90,17 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --color-product-start: 217 91% 60%;
+    --color-product-end: 217 91% 35%;
+
+    --color-success-start: 142 76% 36%;
+    --color-success-end: 158 64% 40%;
+
+    --color-error-start: 0 84% 60%;
+    --color-error-end: 340 82% 67%;
+
+    --color-role-start: 262 83% 58%;
+    --color-role-end: 295 78% 60%;
   }
 }
 

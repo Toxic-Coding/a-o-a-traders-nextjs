@@ -110,11 +110,11 @@ export function DataTable({
   ) => {
     if (pageNumber) {
       const pagQuery = buildQuery({ page: pageNumber });
-      replace(pagQuery);
+      replace(pagQuery, { scroll: false });
     }
     if (itemsPerPage) {
       const pagQuery = buildQuery({ per_page: itemsPerPage });
-      replace(pagQuery);
+      replace(pagQuery, { scroll: false });
     }
     NProgress.start();
   };
@@ -165,7 +165,7 @@ export function DataTable({
   return (
     <Tabs
       defaultValue="outline"
-      className="flex w-full flex-col justify-start gap-6 pb-4"
+      className="flex w-full flex-col justify-start gap-6 pb-4 max-w-[1500px] mx-auto"
     >
       <div className="flex items-center justify-end px-4 lg:px-6">
         <div className="flex items-center gap-2">

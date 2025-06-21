@@ -4,7 +4,6 @@ import { useDropzone } from "react-dropzone";
 import axios, { CancelTokenSource } from "axios";
 
 import { Upload, X, AlertTriangle } from "lucide-react";
-import "tailwindcss/tailwind.css";
 import { useToast } from "@/app/hooks/useToast";
 import Button from "../Common/button";
 import { Progress } from "../ui/progress";
