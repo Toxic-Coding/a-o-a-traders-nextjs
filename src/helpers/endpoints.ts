@@ -7,10 +7,11 @@ export const endpoints = {
     refresh: "/auth/refresh",
     google: "/auth/google",
   },
-  products:{
-    listProducts:"/"
+  products: {
+    listProducts: "/",
   },
-  supplier:{
-    dashboardProducts:"/dashboard/"
-  }
+  supplier: {
+    dashboardProducts: "/dashboard/",
+    dashboardWidgets: "/dashboard/details/",
+  },
 };

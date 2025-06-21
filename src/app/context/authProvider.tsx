@@ -10,6 +10,7 @@ type User = {
   access_token: string;
   refresh_token: string;
   user_role: string;
+  email?: string;
 };
 
 type AuthContextType = {

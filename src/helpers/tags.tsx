@@ -10,6 +10,7 @@ export const tags = {
     all_products: "all_products",
   },
   supplier: {
+    dashboard_widgets: "dashboard_widgets",
     list_products: "list_products",
   },
 };

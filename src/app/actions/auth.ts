@@ -82,6 +82,7 @@ export async function emailLogin(formData: loginData) {
       access_token,
       refresh_token,
       expiresAt: Date.now() + 55 * 60 * 1000, // Token expires in 55 minutes,
+      email: formData.email,
     };
 
     await session.save();
@@ -104,7 +105,6 @@ interface magicLinkLogin {
   email: string;
 }
 export async function sendMagicLink(formData: magicLinkLogin) {
-  
   try {
     const response = await fetch(
       `${process.env.BASE_URL}${endpoints.auth.megicLinkLogin}?email=${formData.email}`,
