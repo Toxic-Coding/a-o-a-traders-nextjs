@@ -176,26 +176,25 @@ const Header = () => {
                     </div>
                   </Link>
                 )}
-                <Link href={"/wishlist"}>
-                  <button className="hidden xl:flex items-center gap-3">
-                    <span className="inline-block relative">
-                      <Heart width={24} height={24} className="text-app_blue" />
+
+                <button className="flex items-center gap-3">
+                  <span className="inline-block relative">
+                    <Heart width={24} height={24} className="text-app_blue" />
 
                       <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2.5 bg-orange w-4.5 h-4.5 rounded-full text-white">
                         {product.length}
                       </span>
                     </span>
 
-                    <div>
-                      <span className="block text-2xs text-app_text uppercase">
-                        Favorite
-                      </span>
-                      <p className="font-medium text-custom-sm text-app_text">
-                        My Wishlist
-                      </p>
-                    </div>
-                  </button>
-                </Link>
+                  <div>
+                    <span className="block text-2xs text-app_text uppercase">
+                      Favorite
+                    </span>
+                    <p className="font-medium text-custom-sm text-app_text whitespace-nowrap">
+                      My Wishlist
+                    </p>
+                  </div>
+                </button>
 
                 <button
                   onClick={handleOpenCartModal}
