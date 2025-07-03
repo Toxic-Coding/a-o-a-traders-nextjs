@@ -45,12 +45,15 @@ const ProductItem = ({ item }: { item: Product }) => {
           />
 
           <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
-            <AddToWishlist product={item} />
+            <AddToWishlist
+              product={item}
+              className="flex items-center justify-center bg-white hover:text-orange p-3 rounded-[5px] bg-white ease-out duration-200"
+            />
             <button
               // onClick={() => handleItemToWishList()}
               aria-label="button for favorite select"
               id="favOne"
-              className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-orange"
+              className="flex items-center justify-center p-3 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-orange"
             >
               <ArrowLeftRight width={17} height={17} />
             </button>
@@ -64,7 +67,7 @@ const ProductItem = ({ item }: { item: Product }) => {
               }}
               id="newOne"
               aria-label="button for quick view"
-              className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-orange"
+              className="flex items-center justify-center p-3 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-orange"
             >
               <Eye width={17} height={17} />
             </button>
@@ -109,7 +112,7 @@ const ProductItem = ({ item }: { item: Product }) => {
         </div>
 
         <h3
-          className="text-app_text font-medium ease-out duration-200 hover:text-orange my-[8px]"
+          className="text-app_text font-medium ease-out duration-200 hover:text-orange my-[8px] line-clamp-2"
           onClick={() => handleProductDetails()}
         >
           {product_name}

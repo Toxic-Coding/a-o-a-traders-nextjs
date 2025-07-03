@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, MapPinned, PhoneCall } from "lucide-react";
+import { menuData } from "../Header/menuData";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -153,93 +155,111 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-3.5">
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="/my-account"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   My Account
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="/signup"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Login / Register
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="/cart"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Cart
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="/wishlist"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Wishlist
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="/all-products"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Shop
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
+          <div className="w-full sm:w-auto">
+            <h2 className="mb-7.5 text-custom-xl font-medium">Pages</h2>
+
+            <ul className="flex flex-col gap-3.5">
+              {menuData.map((menu) => (
+                <li key={menu.id}>
+                  <Link
+                    href={menu.path}
+                    className="ease-out duration-200 hover:text-orange"
+                  >
+                    {menu.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="w-full sm:w-auto">
             <h2 className="mb-7.5 text-custom-xl font-medium">Our Policies</h2>
 
             <ul className="flex flex-col gap-3">
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="#"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="#"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="/shipping-policy"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Shipping Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="/cookies-policy"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Cookies Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
+                <Link
+                  href="/refund-policy"
+                  className="ease-out duration-200 hover:text-orange"
+                >
                   Return & Refund Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          <div className="w-full sm:w-auto">
-            <h2 className="mb-7.5 text-custom-xl font-medium">
-              Terms & Conditions
-            </h2>
-
-            <ul className="flex flex-col gap-3.5">
-              <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
-                  Shipping Policy
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
-                  Cookies Policy
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-orange" href="#">
-                  Return & Refund Policy
-                </a>
-              </li>
-            </ul>
-          </div>
           <div className="max-w-[300px] sm:w-auto">
             <h2 className="mb-7.5 text-custom-xl font-medium">
               Sign Up To Newsletter
@@ -250,13 +270,13 @@ const Footer = () => {
               Saturday.
             </p>
 
-            <form className="bg-orange relative overflow-hidden rounded-[5px] bg-white my-[10px]">
+            <form className="w-full flex overflow-hidden my-[10px]">
               <input
                 type="text"
                 placeholder="Your email address"
-                className="w-full text-custom-sm placeholder:text-app_text text-app_text border-none outline-none py-[13px] px-[10px] rounded-[5px]"
+                className="w-full text-custom-sm placeholder:text-app_text text-app_text border-none outline-none py-[13px] px-[10px] rounded-l-md"
               />
-              <button className="absolute right-0 font-normal text-white text-custom-sm bg-orange py-[13px] px-[18px] rounded-[5px]">
+              <button className="whitespace-nowrap font-normal text-white text-custom-sm bg-orange py-[13px] px-[18px] rounded-r-md">
                 Get It Now
               </button>
             </form>

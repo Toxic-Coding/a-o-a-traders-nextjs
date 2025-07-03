@@ -69,10 +69,7 @@ const AddToWishlist = ({
       }}
       aria-label="button for favorite select"
       id="favOne"
-      className={cn(
-        "flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-orange",
-        className
-      )}
+      className={cn(className)}
     >
       <Heart width={17} height={17} />
     </button>

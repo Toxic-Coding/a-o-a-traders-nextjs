@@ -245,14 +245,14 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* <!--=== Main Nav Start ===--> */}
             <div
-              className={`w-[288px] absolute right-4 top-full xl:static xl:w-auto h-0 xl:h-auto invisible xl:visible xl:flex items-center justify-between ${
+              className={`w-[288px] absolute z-99 right-4 top-full xl:static xl:w-auto h-0 xl:h-auto invisible xl:visible xl:flex items-center justify-between ${
                 navigationOpen &&
                 `!visible bg-white shadow-lg border border-gray-3 !h-auto max-h-[400px] overflow-y-scroll rounded-md p-5`
               }`}
             >
               {/* <!-- Main Nav Start --> */}
               <nav className="flex items-center justify-between gap-5">
-                <div className="w-[300px] vertical-menu bg-orange cursor-pointer flex items-center justify-start p-[20px]">
+                <div className="w-[300px] vertical-menu bg-orange cursor-pointer hidden xl:flex items-center justify-start p-[20px]">
                   <MenuIcon className="mr-[20px]" />
                   <span className="text-[13px] font-medium">
                     SHOP BY DEPARTMENT
@@ -275,7 +275,7 @@ const Header = () => {
                       >
                         <Link
                           href={menuItem.path}
-                          className={`hover:text-orange ${
+                          className={` text-app_text xl:text-white hover:text-orange ${
                             isCurrentRoute(menuItem.path) && "text-orange"
                           }  text-custom-sm font-medium  flex ${
                             stickyMenu ? "xl:py-2" : "xl:py-4"
