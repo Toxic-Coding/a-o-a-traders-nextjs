@@ -176,26 +176,25 @@ const Header = () => {
                     </div>
                   </Link>
                 )}
-                <Link href={"/wishlist"}>
-                  <button className="hidden xl:flex items-center gap-3">
-                    <span className="inline-block relative">
-                      <Heart width={24} height={24} className="text-app_blue" />
+
+                <button className="flex items-center gap-3">
+                  <span className="inline-block relative">
+                    <Heart width={24} height={24} className="text-app_blue" />
 
                       <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2.5 bg-orange w-4.5 h-4.5 rounded-full text-white">
                         {product.length}
                       </span>
                     </span>
 
-                    <div>
-                      <span className="block text-2xs text-app_text uppercase">
-                        Favorite
-                      </span>
-                      <p className="font-medium text-custom-sm text-app_text">
-                        My Wishlist
-                      </p>
-                    </div>
-                  </button>
-                </Link>
+                  <div>
+                    <span className="block text-2xs text-app_text uppercase">
+                      Favorite
+                    </span>
+                    <p className="font-medium text-custom-sm text-app_text whitespace-nowrap">
+                      My Wishlist
+                    </p>
+                  </div>
+                </button>
 
                 <button
                   onClick={handleOpenCartModal}
@@ -245,14 +244,14 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* <!--=== Main Nav Start ===--> */}
             <div
-              className={`w-[288px] absolute right-4 top-full xl:static xl:w-auto h-0 xl:h-auto invisible xl:visible xl:flex items-center justify-between ${
+              className={`w-[288px] absolute z-99 right-4 top-full xl:static xl:w-auto h-0 xl:h-auto invisible xl:visible xl:flex items-center justify-between ${
                 navigationOpen &&
                 `!visible bg-white shadow-lg border border-gray-3 !h-auto max-h-[400px] overflow-y-scroll rounded-md p-5`
               }`}
             >
               {/* <!-- Main Nav Start --> */}
               <nav className="flex items-center justify-between gap-5">
-                <div className="w-[300px] vertical-menu bg-orange cursor-pointer flex items-center justify-start p-[20px]">
+                <div className="w-[300px] vertical-menu bg-orange cursor-pointer hidden xl:flex items-center justify-start p-[20px]">
                   <MenuIcon className="mr-[20px]" />
                   <span className="text-[13px] font-medium">
                     SHOP BY DEPARTMENT
@@ -275,7 +274,7 @@ const Header = () => {
                       >
                         <Link
                           href={menuItem.path}
-                          className={`hover:text-orange ${
+                          className={` text-app_text xl:text-white hover:text-orange ${
                             isCurrentRoute(menuItem.path) && "text-orange"
                           }  text-custom-sm font-medium  flex ${
                             stickyMenu ? "xl:py-2" : "xl:py-4"

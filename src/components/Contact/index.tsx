@@ -14,7 +14,7 @@ const Contact = () => {
       <Breadcrumb title={"Contact"} pages={["contact"]} />
 
       <section className="bg-app_bg py-[80px] px-[10px] sm:px-[20px]">
-        <div className="ax-w-[1500px] flex justify-center flex-col xl:flex-row gap-7.5">
+        <div className="max-w-[1500px] mx-auto w-full flex justify-center flex-col xl:flex-row gap-7.5">
           <div className="xl:max-w-[500px] w-full bg-white rounded-xl shadow-1">
             <div className="py-5 px-4 sm:px-7.5 border-b border-gray-3">
               <p className="font-medium text-xl text-app_text">

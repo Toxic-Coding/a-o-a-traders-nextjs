@@ -711,7 +711,7 @@ const ShopDetails = ({ product }: { product: Product }) => {
 
                   <AddToWishlist
                     product={product}
-                    className="bg-app_orange text-white mt-[15px] hover:bg-white py-3 px-7 rounded-md"
+                    className="hover:bg-orange bg-red-100 flex items-center justify-center border hover:text-white p-4 rounded-[5px] bg-white  ease-out duration-200"
                   />
                 </div>
               </form>

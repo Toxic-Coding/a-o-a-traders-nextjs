@@ -1,7 +1,6 @@
 import React from "react";
 import AllInOneProducts from "./Slider";
 import { Fetch } from "@/helpers/requestHandler";
-import { clearSession } from "@/lib/session";
 
 const AllInOne = async () => {
   const res = await Fetch(`/?page=1&per_page=10`, {

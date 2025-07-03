@@ -125,7 +125,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
           {/* <p className="text-custom-sm">({item.reviews})</p> */}
         </div>
 
-        <h3 className="font-medium text-app_text ease-out duration-200 hover:text-orange mb-1.5">
+        <h3 className="font-medium text-app_text ease-out duration-200 hover:text-orange mb-1.5 line-clamp-2">
           {product_name}
         </h3>
 
