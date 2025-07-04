@@ -47,6 +47,13 @@ const AddToWishlist = ({
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
+        // @ts-ignore
+        if (
+          e.nativeEvent &&
+          typeof e.nativeEvent.stopImmediatePropagation === "function"
+        ) {
+          e.nativeEvent.stopImmediatePropagation();
+        }
         handleItemToWishList();
         toast("Product added to wishlist", {
           description: product.product_name,
@@ -64,7 +71,7 @@ const AddToWishlist = ({
             backgroundColor: "#2F6CC1",
             color: "white",
           },
-          position: "bottom-right",
+          position: "top-right",
         });
       }}
       aria-label="button for favorite select"

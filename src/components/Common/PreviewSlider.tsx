@@ -7,11 +7,15 @@ import Image from "next/image";
 
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
+import extractAllVariantImages from "@/helpers/extractAllVariantImages";
+import { getImageUrl } from "@/helpers/getImageUrl";
 
 const PreviewSliderModal = () => {
   const { closePreviewModal, isModalPreviewOpen } = usePreviewSlider();
 
   const data = useAppSelector((state) => state.productDetails.value);
+
+  const allVariantImages = extractAllVariantImages(data.images);
 
   const sliderRef = useRef(null);
 
@@ -96,16 +100,27 @@ const PreviewSliderModal = () => {
       </div>
 
       <Swiper ref={sliderRef} slidesPerView={1} spaceBetween={20}>
-        <SwiperSlide>
-          <div className="flex justify-center items-center">
-            <Image
-              src={"/images/products/product-2-bg-1.png"}
-              alt={"product image"}
-              width={450}
-              height={450}
-            />
-          </div>
-        </SwiperSlide>
+        {allVariantImages.map((src, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <div className="flex justify-center items-center">
+                <span className="text-white font-bold text-xl">
+                  {allVariantImages.length}
+                </span>
+                <Image
+                  src={getImageUrl({
+                    imagePath: src,
+                    supplierId: data.supplier_id,
+                    variant: "240",
+                  })}
+                  alt={"product image"}
+                  width={450}
+                  height={450}
+                />
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );

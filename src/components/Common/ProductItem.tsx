@@ -47,10 +47,18 @@ const ProductItem = ({ item }: { item: Product }) => {
           <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
             <AddToWishlist
               product={item}
-              className="flex items-center justify-center bg-white hover:text-orange p-3 rounded-[5px] bg-white ease-out duration-200"
+              className="flex items-center justify-center hover:text-orange p-3 rounded-[5px] bg-white ease-out duration-200"
             />
             <button
-              // onClick={() => handleItemToWishList()}
+              onClick={(e) => {
+                // @ts-ignore
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+              }}
               aria-label="button for favorite select"
               id="favOne"
               className="flex items-center justify-center p-3 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-orange"
@@ -62,6 +70,13 @@ const ProductItem = ({ item }: { item: Product }) => {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                // @ts-ignore
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
                 openModal();
                 handleQuickViewUpdate();
               }}

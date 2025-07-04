@@ -34,6 +34,13 @@ const AddToCartButton = ({ product }: { product: Product }) => {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
+        // @ts-ignore
+        if (
+          e.nativeEvent &&
+          typeof e.nativeEvent.stopImmediatePropagation === "function"
+        ) {
+          e.nativeEvent.stopImmediatePropagation();
+        }
         handleAddToCart();
         toast("Product added to cart", {
           description: product.product_name,
@@ -52,7 +59,7 @@ const AddToCartButton = ({ product }: { product: Product }) => {
             backgroundColor: "#2F6CC1",
             color: "white",
           },
-          position: "bottom-right",
+          position: "top-right",
         });
       }}
       className="font-medium text-head-4 py-[7px] px-[18px] rounded-[5px] bg-app_blue text-white ease-out duration-200 mt-[15px]"
